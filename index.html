@@ -96,10 +96,6 @@ p{margin:0}
 .tour-facts{display:grid;gap:22px}
 .tour-facts dt{font-size:1.5rem;font-weight:300;letter-spacing:-.01em;line-height:1.2}
 .tour-facts dd{margin:4px 0 0;color:var(--ink-soft);max-width:38ch}
-.tour-more{display:grid;gap:16px;grid-template-columns:1fr 1fr;margin-top:clamp(20px,3vw,32px)}
-.tour-more .shot{background:none;box-shadow:none;overflow:visible;border-radius:0}
-.tour-more .shot img{border-radius:10px;box-shadow:0 18px 50px -24px rgba(10,36,43,.55)}
-.tour-more figcaption,.cap{font-size:.9rem;color:var(--ink-soft);padding:10px 2px 0}
 
 /* city strip */
 .cities-wrap{margin-top:clamp(64px,9vw,110px)}
@@ -240,17 +236,13 @@ a.city.next:hover{border-color:var(--ink);background:rgba(16,36,43,.05)}
     </div>
     <div class="tour">
       <figure class="shot">
-        <img src="/img/tour-golden-gate.webp" width="1280" height="720" loading="lazy" decoding="async" alt="A guided tour stop at the Golden Gate Bridge, with the narration panel, tour progress and minimap controls on screen">
+        <img src="/img/tour-stop.webp" width="1600" height="900" loading="lazy" decoding="async" alt="A guided tour stop at Alcatraz Island, with the narration panel telling its story, the tour progress and the minimap on screen">
       </figure>
       <dl class="tour-facts">
         <div><dt>Short and long tours</dt><dd>Fifteen stops for an evening, thirty when you want the whole city.</dd></div>
         <div><dt>Pause any time</dt><dd>Step out, walk the neighbourhood, then rejoin the tour where you left it.</dd></div>
         <div><dt>Always oriented</dt><dd>A minimap shows where you are and where the tour heads next, and subtitles are built in.</dd></div>
       </dl>
-    </div>
-    <div class="tour-more">
-      <figure class="shot"><img src="/img/tour-twin-peaks.webp" width="1280" height="720" loading="lazy" decoding="async" alt="Twin Peaks and the San Francisco skyline from above, at a tour stop"><figcaption class="cap">Twin Peaks, San Francisco</figcaption></figure>
-      <figure class="shot"><img src="/img/tour-alcatraz.webp" width="1280" height="720" loading="lazy" decoding="async" alt="Alcatraz Island in San Francisco Bay, at a tour stop"><figcaption class="cap">Alcatraz Island, San Francisco</figcaption></figure>
     </div>
   </div>
 
@@ -260,12 +252,12 @@ a.city.next:hover{border-color:var(--ink);background:rgba(16,36,43,.05)}
       <p>Real streets and skylines, streamed while you play.</p>
     </div>
     <ul class="strip" tabindex="0" aria-label="Cities in City Tour Simulator, scroll sideways">
-      <li><span class="city"><img src="/img/city-sf.webp" width="480" height="270" loading="lazy" alt="San Francisco from above"><b>San Francisco<small>Golden Gate to Twin Peaks</small></b></span></li>
-      <li><span class="city"><img src="/img/city-ghent.webp" width="800" height="450" loading="lazy" alt="Ghent at golden hour from above, with the Graslei, the Leie and the church towers"><b>Ghent<small>Graslei and the three towers</small></b></span></li>
-      <li><span class="city"><img src="/img/city-nyc.webp" width="480" height="270" loading="lazy" alt="New York from above"><b>New York</b></span></li>
-      <li><span class="city"><img src="/img/city-paris.webp" width="480" height="270" loading="lazy" alt="Paris from above"><b>Paris</b></span></li>
-      <li><span class="city"><img src="/img/city-london.webp" width="480" height="270" loading="lazy" alt="London from above"><b>London</b></span></li>
-      <li><span class="city"><img src="/img/city-tokyo.webp" width="480" height="270" loading="lazy" alt="Tokyo from above"><b>Tokyo</b></span></li>
+      <li><span class="city"><img src="/img/city-sf.webp" width="800" height="450" loading="lazy" alt="The Golden Gate Bridge and the Marin Headlands from above"><b>San Francisco<small>Golden Gate to Twin Peaks</small></b></span></li>
+      <li><span class="city"><img src="/img/city-ghent.webp" width="800" height="450" loading="lazy" alt="Ghent from above, with the Leie and the church towers"><b>Ghent<small>Graslei and the three towers</small></b></span></li>
+      <li><span class="city"><img src="/img/city-nyc.webp" width="800" height="450" loading="lazy" alt="The Brooklyn Bridge and Lower Manhattan from above"><b>New York</b></span></li>
+      <li><span class="city"><img src="/img/city-paris.webp" width="800" height="450" loading="lazy" alt="The Eiffel Tower and Paris from above"><b>Paris</b></span></li>
+      <li><span class="city"><img src="/img/city-london.webp" width="800" height="450" loading="lazy" alt="The Houses of Parliament and the Thames from above"><b>London</b></span></li>
+      <li><span class="city"><img src="/img/city-tokyo.webp" width="800" height="450" loading="lazy" alt="Tokyo Tower and the city from above"><b>Tokyo</b></span></li>
       <li><a class="city next" href="/support/"><b>Your city next?<small>A new city arrives every month. Back the one you want to see, and it moves up the list.</small></b></a></li>
     </ul>
   </div>
@@ -279,7 +271,7 @@ a.city.next:hover{border-color:var(--ink);background:rgba(16,36,43,.05)}
     </div>
     <div class="do-grid">
       <article class="do-item">
-        <figure class="shot"><img src="/img/walk.webp" width="1280" height="720" loading="lazy" decoding="async" alt="A street in San Francisco's Mission District at golden hour, seen from the pavement"></figure>
+        <figure class="shot"><img src="/img/walk.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Low over the Leie in Ghent, with the old post office tower and the guild houses along the water"></figure>
         <h3>Walk the streets</h3>
         <p>Drop to street level and wander. Shop fronts, trees and kerbs are all there.</p>
       </article>
@@ -307,9 +299,8 @@ a.city.next:hover{border-color:var(--ink);background:rgba(16,36,43,.05)}
       </article>
       <article class="do-item wide split flip" id="time">
         <div class="dial" id="dial">
-          <img class="on" data-t="day" src="/img/day.webp" width="1280" height="720" loading="lazy" alt="Mission District street in full daylight">
-          <img data-t="golden" src="/img/walk.webp" width="1280" height="720" loading="lazy" alt="The same street at golden hour, with long shadows">
-          <img data-t="night" src="/img/night.webp" width="1280" height="720" loading="lazy" alt="The same street at night, with lit shop windows and street lamps">
+          <img class="on" data-t="day" src="/img/day.webp" width="1600" height="900" loading="lazy" alt="San Francisco's Mission District from above in full daylight, downtown behind">
+          <img data-t="golden" src="/img/golden.webp" width="1600" height="900" loading="lazy" alt="The same view at golden hour, with warm light and long shadows">
         </div>
         <div>
           <h3>Golden hour, any hour</h3>
@@ -317,7 +308,6 @@ a.city.next:hover{border-color:var(--ink);background:rgba(16,36,43,.05)}
           <div class="clock" role="group" aria-label="Time of day">
             <button type="button" data-t="day" aria-pressed="true">Day</button>
             <button type="button" data-t="golden" aria-pressed="false">Golden hour</button>
-            <button type="button" data-t="night" aria-pressed="false">Night</button>
           </div>
         </div>
       </article>
