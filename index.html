@@ -53,7 +53,7 @@ p{margin:0}
 /* header */
 .site-header{position:absolute;inset:0 0 auto 0;z-index:10;padding:16px 0;color:#fff}
 .site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:600;letter-spacing:.01em}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:600;font-size:1.1rem;letter-spacing:.01em;text-shadow:0 1px 10px rgba(0,0,0,.5)}
 .brand img{width:40px;height:40px;border-radius:10px}
 .site-header nav{display:flex;gap:26px;font-size:.95rem}
 .site-header nav a{text-decoration:none;padding:6px 0;border-bottom:1px solid transparent}
@@ -68,9 +68,7 @@ p{margin:0}
 @keyframes dolly{from{transform:scale(1.12)}to{transform:scale(1)}}
 .hero::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(10,26,33,.55) 0,rgba(10,26,33,0) 28%,rgba(10,26,33,.25) 55%,rgba(10,26,33,.9) 100%)}
 .hero .wrap{position:relative;z-index:1;padding:140px 0 clamp(36px,7vw,72px)}
-.hero h1{width:min(400px,70vw)}
-.hero h1 img{width:100%}
-.tagline{margin-top:clamp(10px,2vw,22px);font-size:clamp(2.3rem,6vw,4.6rem);font-weight:300;letter-spacing:-.03em;line-height:1;text-shadow:0 2px 24px rgba(0,0,0,.4)}
+.tagline{max-width:9ch;font-size:clamp(3rem,9vw,7rem);font-weight:400;letter-spacing:-.035em;line-height:.95;text-shadow:0 2px 24px rgba(0,0,0,.4)}
 .hero .lede{margin-top:18px;color:#e6eef0;text-shadow:0 1px 14px rgba(0,0,0,.55)}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .btn{display:inline-flex;align-items:center;min-height:48px;padding:0 24px;border-radius:999px;font-weight:600;text-decoration:none;border:1.5px solid var(--gold);transition:background .15s,color .15s}
@@ -211,8 +209,7 @@ p{margin:0}
     <img class="bg" src="/img/hero-2400.jpg" width="2400" height="775" alt="The Golden Gate Bridge glowing orange at golden hour, seen from above in City Tour Simulator" fetchpriority="high">
   </picture>
   <div class="wrap">
-    <h1 id="title"><img src="/img/logo.webp" width="900" height="506" alt="City Tour Simulator"></h1>
-    <p class="tagline">Explore real cities</p>
+    <h1 id="title" class="tagline"><span class="sr">City Tour Simulator: </span>Explore real cities</h1>
     <p class="lede">Fly between landmarks on narrated tours, walk the streets, and meet friends in the same city. Photorealistic 3D, with a new city every month.</p>
     <div class="cta">
       <a class="btn btn-solid" href="https://www.youtube.com/@citytoursim" rel="noopener">Watch on YouTube</a>
