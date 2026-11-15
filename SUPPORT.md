@@ -4,7 +4,8 @@
 linked from the home page, and shows **Opening soon** with every button disabled until payments are set up.
 
 - **One supporter, one vote:** each unique paying supporter counts once per city per calendar month (UTC), however
-  much they give. Votes decide the ranking. Dollars are shown separately as funding progress toward each city's goal.
+  much they give. Cities that are not in the game yet are ranked by votes, high to low, with the amount raised shown
+  next to them. There are no funding goals.
 - **The winner** is the city with the most votes when the month's vote closes, after a check that its 3D coverage and
   quality are good enough. A city can be skipped or delayed for coverage, quality or legal reasons. A city takes 6 to 8
   weeks to make, so each vote decides the release about two months later.
@@ -82,8 +83,7 @@ Stripe's page, and the button on the page cannot preselect it.
 | `cities[].name`, `country` | Shown on the page. |
 | `cities[].stripe_link` | Stripe Payment Link URL, or `""`. Must start with `https://`. |
 | `cities[].bitcoin_link` | Hosted Bitcoin checkout URL, or `""`. |
-| `cities[].goal_usd` | The funding goal the progress bar fills toward. |
-| `cities[].votes` | Unique paying supporters this month (card plus Bitcoin). Written by the Action. Decides the ranking. |
+| `cities[].votes` | Unique paying supporters this month (card plus Bitcoin). Written by the Action. Decides the ranking; the bar shows votes relative to the leading city. |
 | `cities[].raised_usd` | Amount this month, card plus Bitcoin. Written by the Action. |
 | `cities[].updated` | When this city's numbers last changed, or `null`. Written by the Action. |
 
