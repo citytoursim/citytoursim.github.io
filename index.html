@@ -6,6 +6,7 @@
 <title>City Tour Simulator: Explore real cities</title>
 <meta name="description" content="Explore real cities from above and on foot. Narrated guided tours in photorealistic 3D: San Francisco, Ghent, New York, Paris, London and Tokyo, with a new city every month. Coming to Steam.">
 <meta name="theme-color" content="#0a1a21">
+<link rel="icon" type="image/svg+xml" href="/img/icon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
@@ -53,13 +54,13 @@ p{margin:0}
 /* header */
 .site-header{position:absolute;inset:0 0 auto 0;z-index:10;padding:16px 0;color:#fff}
 .site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:600;font-size:1.1rem;letter-spacing:.01em;text-shadow:0 1px 10px rgba(0,0,0,.5)}
-.brand img{width:40px;height:40px;border-radius:10px}
+.brand{display:block;line-height:0}
+.brand img{height:clamp(40px,5vw,52px);width:auto;filter:drop-shadow(0 1px 8px rgba(0,0,0,.45))}
 .site-header nav{display:flex;gap:26px;font-size:.95rem}
 .site-header nav a{text-decoration:none;padding:6px 0;border-bottom:1px solid transparent}
 .site-header nav a:hover{border-color:var(--gold)}
 @media (max-width:700px){.hero img.bg{object-position:50% 50%}}
-@media (max-width:640px){.site-header nav a:not(.keep){display:none}.brand span{font-size:.95rem}}
+@media (max-width:640px){.site-header nav a:not(.keep){display:none}}
 
 /* hero */
 .hero{position:relative;min-height:min(94svh,860px);display:grid;align-items:end;background:var(--night);overflow:hidden;isolation:isolate}
@@ -175,8 +176,7 @@ p{margin:0}
 .site-footer .wrap{display:grid;gap:14px}
 .site-footer p{max-width:70ch}
 .site-footer a{color:#e8f0f1}
-.site-footer .mark{display:flex;align-items:center;gap:10px;color:#fff;font-weight:600}
-.site-footer .mark img{width:28px;height:28px;border-radius:7px}
+.site-footer .mark img{height:36px;width:auto}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -190,7 +190,7 @@ p{margin:0}
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="City Tour Simulator, home"><img src="/img/favicon-192.png" width="40" height="40" alt=""><span>City Tour Simulator</span></a>
+    <a class="brand" href="/"><img src="/img/logo-horizontal-light.svg" width="675" height="156" alt="City Tour Simulator, home"></a>
     <nav aria-label="Main">
       <a href="#tours">Tours</a>
       <a href="#explore">Explore</a>
@@ -361,7 +361,7 @@ p{margin:0}
 
 <footer class="site-footer">
   <div class="wrap">
-    <div class="mark"><img src="/img/favicon-192.png" width="28" height="28" alt="">City Tour Simulator</div>
+    <div class="mark"><img src="/img/logo-horizontal-light.svg" width="675" height="156" alt="City Tour Simulator"></div>
     <p>Map data ©Google. 3D tiles: Google Maps Platform, streamed with Cesium. Minimap © OpenStreetMap contributors. Narration voice by ElevenLabs.</p>
     <p>City Tour Simulator is an independent game. Screenshots are taken in the game and show the Google and Cesium credits, as required.</p>
   </div>
