@@ -1,0 +1,5 @@
+{
+  "_readme": "Bitcoin support for the current month, per city: votes = unique supporters, raised_usd = USD value at the time of payment. Only used when month matches the current month (YYYY-MM). Aggregates only: never put names, emails or addresses here.",
+  "month": null,
+  "cities": {}
+}

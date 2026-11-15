@@ -1,0 +1,375 @@
+{
+  "open": false,
+  "currency": "usd",
+  "show_live": true,
+  "round": {
+    "month": null,
+    "vote_closes": null,
+    "decides_release": null
+  },
+  "updated": null,
+  "live": [
+    {
+      "slug": "sf",
+      "name": "San Francisco",
+      "country": "United States"
+    },
+    {
+      "slug": "ghent",
+      "name": "Ghent",
+      "country": "Belgium"
+    },
+    {
+      "slug": "nyc",
+      "name": "New York",
+      "country": "United States"
+    },
+    {
+      "slug": "paris",
+      "name": "Paris",
+      "country": "France"
+    },
+    {
+      "slug": "london",
+      "name": "London",
+      "country": "United Kingdom"
+    },
+    {
+      "slug": "tokyo",
+      "name": "Tokyo",
+      "country": "Japan"
+    }
+  ],
+  "cities": [
+    {
+      "slug": "rome",
+      "name": "Rome",
+      "country": "Italy",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "barcelona",
+      "name": "Barcelona",
+      "country": "Spain",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "amsterdam",
+      "name": "Amsterdam",
+      "country": "Netherlands",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "dubai",
+      "name": "Dubai",
+      "country": "United Arab Emirates",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "chicago",
+      "name": "Chicago",
+      "country": "United States",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "las-vegas",
+      "name": "Las Vegas",
+      "country": "United States",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "venice",
+      "name": "Venice",
+      "country": "Italy",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "los-angeles",
+      "name": "Los Angeles",
+      "country": "United States",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "sydney",
+      "name": "Sydney",
+      "country": "Australia",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "istanbul",
+      "name": "Istanbul",
+      "country": "Türkiye",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "lisbon",
+      "name": "Lisbon",
+      "country": "Portugal",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "prague",
+      "name": "Prague",
+      "country": "Czechia",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "rio-de-janeiro",
+      "name": "Rio de Janeiro",
+      "country": "Brazil",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "singapore",
+      "name": "Singapore",
+      "country": "Singapore",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "berlin",
+      "name": "Berlin",
+      "country": "Germany",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "kyoto",
+      "name": "Kyoto",
+      "country": "Japan",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "washington-dc",
+      "name": "Washington, DC",
+      "country": "United States",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "vienna",
+      "name": "Vienna",
+      "country": "Austria",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "hong-kong",
+      "name": "Hong Kong",
+      "country": "China (SAR)",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "madrid",
+      "name": "Madrid",
+      "country": "Spain",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "mexico-city",
+      "name": "Mexico City",
+      "country": "Mexico",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "cape-town",
+      "name": "Cape Town",
+      "country": "South Africa",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "florence",
+      "name": "Florence",
+      "country": "Italy",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "budapest",
+      "name": "Budapest",
+      "country": "Hungary",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "seattle",
+      "name": "Seattle",
+      "country": "United States",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "edinburgh",
+      "name": "Edinburgh",
+      "country": "United Kingdom",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "miami",
+      "name": "Miami",
+      "country": "United States",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "toronto",
+      "name": "Toronto",
+      "country": "Canada",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "munich",
+      "name": "Munich",
+      "country": "Germany",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    },
+    {
+      "slug": "buenos-aires",
+      "name": "Buenos Aires",
+      "country": "Argentina",
+      "stripe_link": "",
+      "bitcoin_link": "",
+      "goal_usd": 500,
+      "votes": 0,
+      "raised_usd": 0,
+      "updated": null
+    }
+  ]
+}
