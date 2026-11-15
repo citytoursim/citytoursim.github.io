@@ -1,7 +1,7 @@
 # Back a city
 
 [/support/](https://citytoursim.com/support/) lets anyone back a city at any time: an upcoming city (the most-backed
-one is built next) or a city already in the game (support goes toward improving it). It is public and linked from the
+cities move to the front of the list) or a city already in the game (support goes toward improving it). It is public and linked from the
 home page, and shows **Opening soon** with every button reading "Soon" until payments are set up.
 
 - **Backers, not dollars:** each city shows how many unique people have backed it, all time. Upcoming cities are ranked
@@ -11,7 +11,8 @@ home page, and shows **Opening soon** with every button reading "Soon" until pay
 - **No forms, cookies or third-party scripts** on the site: checkout happens on Stripe's page.
 - **Wording:** "back" or "support the project", never "donation", never anything that reads as buying a city or map
   content. The footnote on the page says it's voluntary support, not a purchase or a guarantee; payments are handled
-  by Stripe; refunds as the law requires; counts shown, never names.
+  by Stripe; refunds as the law requires; counts shown, never names. It also says cities need good 3D map
+  coverage and may be skipped or delayed for coverage, quality or legal reasons.
 
 ## Setup checklist (the user does these)
 
