@@ -1,0 +1,4 @@
+{
+  "_readme": "Bitcoin support per city, in USD at the time of payment. Updated by hand or by a later provider step. Aggregates only: never put names, emails or addresses here.",
+  "cities": {}
+}

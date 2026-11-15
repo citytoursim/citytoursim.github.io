@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support a city: City Tour Simulator</title>
+<meta name="description" content="Vote for the next city in City Tour Simulator. Support a city and it counts toward which city we build next.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a1a21">
+<link rel="icon" type="image/svg+xml" href="/img/icon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Support a city: City Tour Simulator">
+<meta property="og:description" content="Vote for the next city we build.">
+<meta property="og:image" content="https://citytoursim.com/og.jpg?v=2">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --night:#0a1a21; --night-2:#12303a; --night-line:#27454f;
+  --gold:#f4bd6d; --amber-ink:#2a1708; --white:#f6f8f7; --mist:#a9c0c6;
+  --sans:"Avenir Next","Avenir","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --gutter:clamp(18px,5vw,56px);
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--night);color:var(--white);font:400 1.0625rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:2px}
+.wrap{width:min(1040px,100% - 2*var(--gutter));margin-inline:auto}
+.skip{position:absolute;left:12px;top:-60px;z-index:20;background:var(--gold);color:var(--amber-ink);padding:10px 16px;border-radius:6px;font-weight:600}
+.skip:focus{top:12px}
+h1,h2{margin:0;font-weight:300;letter-spacing:-.02em;line-height:1.05}
+p{margin:0}
+
+.site-header{padding:18px 0;border-bottom:1px solid var(--night-line)}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:block;line-height:0}
+.brand img{height:clamp(36px,5vw,46px);width:auto}
+.site-header nav a{font-size:.95rem;text-decoration:none;border-bottom:1px solid transparent;padding:6px 0}
+.site-header nav a:hover{border-color:var(--gold)}
+
+.intro{padding:clamp(48px,8vw,96px) 0 clamp(32px,5vw,56px);display:grid;gap:22px}
+.intro h1{font-size:clamp(2.6rem,7vw,5rem)}
+.lede{font-size:clamp(1.125rem,2vw,1.3rem);line-height:1.55;max-width:46ch;color:#dbe8ea}
+.soon{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--gold);border-radius:10px;max-width:640px;color:#f2e6d2}
+.soon b{color:var(--gold);font-weight:600;white-space:nowrap}
+
+.how{display:grid;gap:18px;margin:0;padding:0;list-style:none;counter-reset:step}
+@media (min-width:820px){.how{grid-template-columns:repeat(3,1fr);gap:28px}}
+.how li{counter-increment:step;padding-top:14px;border-top:1px solid var(--night-line);color:var(--mist)}
+.how li::before{content:counter(step);display:block;font-size:1.6rem;font-weight:300;color:var(--gold);line-height:1.2;margin-bottom:4px}
+.how strong{color:var(--white);font-weight:600}
+.fine{margin-top:26px;font-size:.95rem;color:var(--mist);max-width:64ch}
+
+.board{padding:clamp(40px,6vw,72px) 0}
+.board-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px 24px;margin-bottom:18px}
+.board-head h2{font-size:clamp(1.9rem,4vw,2.8rem)}
+.board-head p{color:var(--mist);font-size:.95rem}
+.cities{list-style:none;margin:0;padding:0;border-top:1px solid var(--night-line)}
+.city{display:grid;grid-template-columns:2.2rem 1fr;gap:6px 14px;padding:18px 0;border-bottom:1px solid var(--night-line);align-items:center}
+.rank{font-size:1.25rem;font-weight:300;color:var(--gold);text-align:right;font-variant-numeric:tabular-nums}
+.name{font-size:clamp(1.35rem,2.6vw,1.75rem);font-weight:300;letter-spacing:-.015em;line-height:1.15}
+.name small{display:block;font-size:.88rem;color:var(--mist);letter-spacing:0;font-weight:400;margin-top:2px}
+.meter{grid-column:2;display:grid;gap:6px}
+.bar{height:6px;border-radius:6px;background:var(--night-2);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--gold);border-radius:6px}
+.nums{font-size:.9rem;color:var(--mist);font-variant-numeric:tabular-nums}
+.nums b{color:var(--white);font-weight:600}
+.acts{grid-column:2;display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;border:1.5px solid var(--gold);white-space:nowrap}
+a.btn-solid{background:var(--gold);color:var(--amber-ink)}
+a.btn-solid:hover{background:#fff;border-color:#fff}
+a.btn-line{color:var(--white)}
+a.btn-line:hover{background:var(--gold);color:var(--amber-ink)}
+.btn[aria-disabled=true]{border-color:var(--night-line);color:#7f989e;background:transparent;cursor:not-allowed}
+@media (min-width:820px){
+  .city{grid-template-columns:2.6rem minmax(0,1.1fr) minmax(0,1fr) auto;gap:20px}
+  .meter,.acts{grid-column:auto;margin-top:0}
+}
+.live{padding:0 0 clamp(56px,8vw,96px);color:var(--mist)}
+.live h2{font-size:1.35rem;font-weight:400;color:var(--white);margin-bottom:8px}
+.live ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 22px}
+.live a{color:var(--gold)}
+.error{color:var(--mist);padding:18px 0}
+
+.site-footer{background:#06131a;color:#c4d5d9;padding:40px 0 48px;font-size:.92rem;line-height:1.7}
+.site-footer .wrap{display:grid;gap:14px}
+.site-footer .mark img{height:36px;width:auto}
+.site-footer p{max-width:70ch}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/img/logo-horizontal-light.svg" width="675" height="156" alt="City Tour Simulator, home"></a>
+    <nav aria-label="Main"><a href="/">Back to the site</a></nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap intro" aria-labelledby="h">
+    <h1 id="h">Pick the next city</h1>
+    <p class="lede">We add a new city every month. Support the one you most want to explore: every contribution counts as a vote, and the city with the most support is the one we build next.</p>
+    <p class="soon" id="soon" role="status"><b>Opening soon</b><span>Payments are not open yet. This page shows how the vote will work.</span></p>
+  </section>
+
+  <section class="wrap" aria-label="How the vote works">
+    <ol class="how">
+      <li><strong>Choose a city</strong> and give what you like, by card (including Apple Pay and Google Pay) or Bitcoin. Checkout opens on the payment provider's own page.</li>
+      <li><strong>Totals update</strong> on this page about every 30 minutes. Only the total and the number of supporters per city are shown, never names.</li>
+      <li><strong>At the end of each month</strong> the city with the most support goes into production as the next new city.</li>
+    </ol>
+    <p class="fine">Support is a contribution to the project, not a purchase. You receive nothing in return, and there is no guarantee that a city will be added or when.</p>
+  </section>
+
+  <section class="wrap board" aria-labelledby="board-h">
+    <div class="board-head">
+      <h2 id="board-h">Cities you can vote for</h2>
+      <p id="since"></p>
+    </div>
+    <ol class="cities" id="cities" aria-live="polite"></ol>
+    <noscript><p class="error">Turn on JavaScript to see the cities and their totals.</p></noscript>
+  </section>
+
+  <section class="wrap live" aria-labelledby="live-h">
+    <h2 id="live-h">Already in the game</h2>
+    <ul id="live"></ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="mark"><img src="/img/logo-horizontal-light.svg" width="675" height="156" alt="City Tour Simulator"></div>
+    <p>Map data ©Google. 3D tiles: Google Maps Platform, streamed with Cesium. Minimap © OpenStreetMap contributors. Narration voice by ElevenLabs.</p>
+    <p>City Tour Simulator is an independent game. Card payments are handled by Stripe and Bitcoin payments by the Bitcoin checkout provider, each on their own pages.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var list=document.getElementById('cities');
+  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
+  function money(n,cur){var d=(Math.round(n*100)%100)?2:0;try{return new Intl.NumberFormat('en-US',{style:'currency',currency:cur.toUpperCase(),minimumFractionDigits:d,maximumFractionDigits:d}).format(n)}catch(e){return '$'+n.toFixed(d)}}
+  function button(label,short,href,open,solid,city){
+    if(open&&href&&/^https:\/\//.test(href)){
+      var a=el('a','btn '+(solid?'btn-solid':'btn-line'),label);
+      a.href=href;a.rel='noopener';a.setAttribute('aria-label',label+' for '+city);return a;
+    }
+    var s=el('span','btn',short+' opens soon');s.setAttribute('aria-disabled','true');return s;
+  }
+  fetch('/data/support.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){
+    var open=!!d.open, cur=d.currency||'usd';
+    document.getElementById('soon').hidden=open;
+    if(d.round_start){
+      var dt=new Date(d.round_start+'T00:00:00Z');
+      document.getElementById('since').textContent='Counting since '+dt.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'})+(d.updated?'. Last update '+new Date(d.updated).toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'})+'.':'.');
+    }
+    var cities=(d.cities||[]).map(function(c,i){c._i=i;return c});
+    cities.sort(function(a,b){return (b.raised_usd||0)-(a.raised_usd||0)||(b.supporters||0)-(a.supporters||0)||a._i-b._i});
+    var rank=0;
+    cities.forEach(function(c){
+      var li=el('li','city'), raised=c.raised_usd||0, goal=c.goal_usd||0;
+      if(raised>0)rank++;
+      var r=el('span','rank',raised>0?String(rank):'');r.setAttribute('aria-hidden','true');li.appendChild(r);
+      var n=el('div','name',c.name);n.appendChild(el('small',null,c.country||''));li.appendChild(n);
+      var m=el('div','meter'), bar=el('div','bar'), fill=el('i');
+      var pct=goal>0?Math.min(100,raised/goal*100):0;fill.style.width=pct+'%';bar.appendChild(fill);
+      bar.setAttribute('role','progressbar');bar.setAttribute('aria-valuemin','0');bar.setAttribute('aria-valuemax',String(goal));bar.setAttribute('aria-valuenow',String(raised));
+      bar.setAttribute('aria-label',c.name+': '+money(raised,cur)+' of '+money(goal,cur)+' goal');
+      m.appendChild(bar);
+      var nums=el('p','nums');var b=el('b',null,money(raised,cur));nums.appendChild(b);
+      nums.appendChild(document.createTextNode(' of '+money(goal,cur)+' goal, '+(c.supporters||0)+((c.supporters||0)===1?' supporter':' supporters')));
+      m.appendChild(nums);li.appendChild(m);
+      var acts=el('div','acts');
+      acts.appendChild(button('Support with card','Card',c.stripe_link,open,true,c.name));
+      acts.appendChild(button('Support with Bitcoin','Bitcoin',c.bitcoin_link,open,false,c.name));
+      li.appendChild(acts);list.appendChild(li);
+    });
+    var live=document.getElementById('live');
+    (d.live||[]).forEach(function(c){var li=el('li');var a=el('a',null,c.name);a.href='/#cities';li.appendChild(a);live.appendChild(li)});
+  }).catch(function(){list.appendChild(el('li','error','The city list could not be loaded. Try again in a moment.'))});
+})();
+</script>
+</body>
+</html>
