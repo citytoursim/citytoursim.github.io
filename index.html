@@ -3,185 +3,385 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>City Tour Simulator – Explore real cities</title>
-<meta name="description" content="Explore real cities from above and on foot. Narrated guided tours of San Francisco, Ghent, New York, Paris, London and Tokyo, with a new city every month. Coming to Steam.">
-<meta name="theme-color" content="#14110f">
+<title>City Tour Simulator: Explore real cities</title>
+<meta name="description" content="Explore real cities from above and on foot. Narrated guided tours in photorealistic 3D: San Francisco, Ghent, New York, Paris, London and Tokyo, with a new city every month. Coming to Steam.">
+<meta name="theme-color" content="#0a1a21">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="canonical" href="https://citytoursim.com/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="City Tour Simulator – Explore real cities">
-<meta property="og:description" content="Narrated aerial city tours in photorealistic 3D. A new city every month. Coming to Steam.">
+<meta property="og:site_name" content="City Tour Simulator">
+<meta property="og:title" content="City Tour Simulator: Explore real cities">
+<meta property="og:description" content="Narrated tours of real cities in photorealistic 3D. Walk, climb, fly, or explore together. A new city every month. Coming to Steam.">
 <meta property="og:url" content="https://citytoursim.com/">
 <meta property="og:image" content="https://citytoursim.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Golden Gate Bridge at golden hour, from the city tour in City Tour Simulator">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="image" href="/img/hero-2400.jpg" media="(min-width:701px)">
 <style>
 :root{
-  --bg:#14110f; --bg2:#1c1814; --card:#221d18; --line:#352d25;
-  --text:#f3ece3; --muted:#b9ad9f; --gold:#f2a444; --gold2:#ffcf8a;
-  --radius:14px;
+  --night:#0a1a21; --night-2:#12303a; --night-line:#27454f;
+  --day:#e4edef; --day-2:#d3e0e3; --ink:#10242b; --ink-soft:#3b5159;
+  --amber:#eba958; --amber-ink:#2a1708;
+  --gold:#f4bd6d; --orange:#e4572e; --white:#f6f8f7; --mist:#a9c0c6;
+  --sans:"Avenir Next","Avenir","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --gutter:clamp(18px,5vw,56px);
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);
-  font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  -webkit-font-smoothing:antialiased}
-img{max-width:100%;height:auto;display:block}
-a{color:var(--gold2)}
-a:hover{color:#fff}
-.wrap{width:min(1080px,100% - 32px);margin-inline:auto}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--night);color:var(--white);font:400 1.0625rem/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1px}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:2px}
+.on-night :focus-visible,.hero :focus-visible,.site-footer :focus-visible{outline-color:var(--gold)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;z-index:20;background:var(--gold);color:var(--amber-ink);padding:10px 16px;border-radius:6px;font-weight:600}
+.skip:focus{top:12px}
+.wrap{width:min(1160px,100% - 2*var(--gutter));margin-inline:auto}
 
-/* top bar */
-header{position:absolute;inset:0 0 auto 0;z-index:5;padding:16px 0}
-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:700;letter-spacing:.02em}
-.brand img{width:36px;height:36px;border-radius:9px}
-nav{display:flex;gap:20px;font-size:15px}
-nav a{color:#fff;text-decoration:none;opacity:.9}
-nav a:hover{opacity:1;text-decoration:underline}
-@media (max-width:560px){nav a:not(:last-child){display:none}}
+/* type */
+h1,h2,h3{margin:0;font-weight:300;letter-spacing:-.02em;line-height:1.05}
+h2{font-size:clamp(2.1rem,5.2vw,3.9rem);max-width:15ch;text-wrap:balance}
+h3{font-size:1.5rem;font-weight:400;letter-spacing:-.01em;line-height:1.2}
+p{margin:0}
+.lede{font-size:clamp(1.125rem,2vw,1.35rem);line-height:1.55;max-width:44ch}
+.sub{color:var(--ink-soft)}
+
+/* header */
+.site-header{position:absolute;inset:0 0 auto 0;z-index:10;padding:16px 0;color:#fff}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:600;letter-spacing:.01em}
+.brand img{width:40px;height:40px;border-radius:10px}
+.site-header nav{display:flex;gap:26px;font-size:.95rem}
+.site-header nav a{text-decoration:none;padding:6px 0;border-bottom:1px solid transparent}
+.site-header nav a:hover{border-color:var(--gold)}
+@media (max-width:700px){.hero img.bg{object-position:50% 50%}}
+@media (max-width:640px){.site-header nav a:not(.keep){display:none}.brand span{font-size:.95rem}}
 
 /* hero */
-.hero{position:relative;min-height:min(86vh,720px);display:grid;align-items:end;
-  background:#14110f url(/img/hero.jpg) center 35%/cover no-repeat}
-.hero::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(20,17,15,.55) 0%,rgba(20,17,15,0) 30%,rgba(20,17,15,.35) 60%,var(--bg) 100%)}
-.hero .wrap{position:relative;z-index:2;padding:120px 0 56px}
-.hero img.logo{width:min(440px,80%);margin:0 0 -8px -24px;filter:drop-shadow(0 6px 24px rgba(0,0,0,.45))}
-.tagline{font-size:clamp(28px,5vw,48px);line-height:1.1;font-weight:800;margin:0 0 14px;letter-spacing:-.01em}
-.lede{max-width:640px;color:#eadfd2;margin:0 0 24px;font-size:clamp(17px,2.2vw,20px)}
-.pill{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;
-  background:var(--gold);color:#241505;font-weight:700;font-size:16px}
-.pill.ghost{background:transparent;color:var(--text);border:1px solid var(--line);text-decoration:none}
-.pill.ghost:hover{border-color:var(--gold)}
-.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.hero{position:relative;min-height:min(94svh,860px);display:grid;align-items:end;background:var(--night);overflow:hidden;isolation:isolate}
+.hero picture,.hero img.bg{position:absolute;inset:0;width:100%;height:100%}
+.hero img.bg{object-fit:cover;object-position:50% 40%;transform-origin:62% 55%;animation:dolly 22s ease-out both}
+@keyframes dolly{from{transform:scale(1.12)}to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(10,26,33,.55) 0,rgba(10,26,33,0) 28%,rgba(10,26,33,.25) 55%,rgba(10,26,33,.9) 100%)}
+.hero .wrap{position:relative;z-index:1;padding:140px 0 clamp(36px,7vw,72px)}
+.hero h1{width:min(400px,70vw)}
+.hero h1 img{width:100%}
+.tagline{margin-top:clamp(10px,2vw,22px);font-size:clamp(2.3rem,6vw,4.6rem);font-weight:300;letter-spacing:-.03em;line-height:1;text-shadow:0 2px 24px rgba(0,0,0,.4)}
+.hero .lede{margin-top:18px;color:#e6eef0;text-shadow:0 1px 14px rgba(0,0,0,.55)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 24px;border-radius:999px;font-weight:600;text-decoration:none;border:1.5px solid var(--gold);transition:background .15s,color .15s}
+.btn-solid{background:var(--gold);color:var(--amber-ink)}
+.btn-solid:hover{background:#fff;border-color:#fff}
+.btn-line{color:#fff;background:rgba(10,26,33,.35)}
+.btn-line:hover{background:var(--gold);color:var(--amber-ink)}
 
 /* sections */
-section{padding:72px 0}
-section.alt{background:var(--bg2);border-block:1px solid var(--line)}
-h2{font-size:clamp(26px,3.6vw,36px);line-height:1.15;margin:0 0 14px;letter-spacing:-.01em}
-.sub{color:var(--muted);max-width:680px;margin:0 0 32px}
-.cities{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:0 0 36px;padding:0;list-style:none}
-.cities li{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--card)}
-.cities img{aspect-ratio:16/10;width:100%;object-fit:cover}
-.cities span{display:block;padding:8px 10px;font-size:14px;font-weight:600}
-@media (max-width:900px){.cities{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:480px){.cities{grid-template-columns:repeat(2,1fr)}}
-.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.shots figure{margin:0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
-.shots img{width:100%;aspect-ratio:16/9;object-fit:cover}
-@media (max-width:640px){.shots{grid-template-columns:1fr}}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:600px){.grid{grid-template-columns:1fr}}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
-.card h3{margin:0 0 8px;font-size:19px}
-.card p{margin:0;color:var(--muted);font-size:16px}
-.video{border:1px dashed var(--line);border-radius:var(--radius);padding:40px 24px;text-align:center;background:var(--card)}
-.video p{margin:0 0 8px;color:var(--muted)}
-.links{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0;list-style:none}
-.links a{display:inline-block;padding:10px 16px;border:1px solid var(--line);border-radius:999px;
-  text-decoration:none;color:var(--text);background:var(--card)}
-.links a:hover{border-color:var(--gold);color:#fff}
-footer{padding:36px 0 56px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
-footer p{margin:0 0 8px;max-width:760px}
+.section{padding:clamp(64px,10vw,128px) 0}
+.on-day{background:var(--day);color:var(--ink)}
+.on-amber{background:linear-gradient(180deg,#efb865 0%,#e9a253 55%,#d27d43 100%);color:var(--amber-ink)}
+.on-night{background:var(--night);color:var(--white)}
+.head{display:grid;gap:22px;margin-bottom:clamp(32px,5vw,56px)}
+@media (min-width:900px){.head{grid-template-columns:1fr 1fr;align-items:end}.head .lede{justify-self:end}}
+
+/* tours */
+.tour{display:grid;gap:28px;align-items:start}
+@media (min-width:900px){.tour{grid-template-columns:1.55fr 1fr;gap:48px}}
+.shot{margin:0;border-radius:10px;overflow:hidden;background:var(--night-2);box-shadow:0 18px 50px -24px rgba(10,36,43,.55)}
+.shot img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.tour-facts{display:grid;gap:22px}
+.tour-facts dt{font-size:1.5rem;font-weight:300;letter-spacing:-.01em;line-height:1.2}
+.tour-facts dd{margin:4px 0 0;color:var(--ink-soft);max-width:38ch}
+.tour-more{display:grid;gap:16px;grid-template-columns:1fr 1fr;margin-top:clamp(20px,3vw,32px)}
+.tour-more .shot{background:none;box-shadow:none;overflow:visible;border-radius:0}
+.tour-more .shot img{border-radius:10px;box-shadow:0 18px 50px -24px rgba(10,36,43,.55)}
+.tour-more figcaption,.cap{font-size:.9rem;color:var(--ink-soft);padding:10px 2px 0}
+
+/* city strip */
+.cities-wrap{margin-top:clamp(64px,9vw,110px)}
+.cities-wrap h3{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:300;margin-bottom:6px}
+.cities-wrap > .wrap > p{color:var(--ink-soft);max-width:52ch}
+.strip{--edge:max(var(--gutter),(100% - 1160px)/2);list-style:none;margin:28px 0 0;padding:0 var(--edge) 18px;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x proximity;scroll-padding-inline:var(--edge);overscroll-behavior-x:contain}
+.strip li{flex:0 0 clamp(250px,30vw,370px);scroll-snap-align:start}
+.city{position:relative;display:block;aspect-ratio:4/3.3;border-radius:10px;overflow:hidden;background:var(--night-2);color:#fff}
+.city img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.city::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,26,33,0) 38%,rgba(10,26,33,.82) 100%)}
+.city b{position:absolute;left:18px;right:18px;bottom:14px;z-index:1;font-weight:300;font-size:clamp(1.9rem,3.2vw,2.5rem);letter-spacing:-.025em;line-height:1}
+.city small{display:block;font-size:.88rem;font-weight:400;letter-spacing:0;margin-top:6px;color:#dbe8ea}
+.city.next{display:grid;align-content:end;padding:18px;background:transparent;border:1.5px dashed #6d8a91;color:var(--ink)}
+.city.next::after{display:none}
+.city.next b{position:static}
+.city.next small{color:var(--ink-soft)}
+.strip::-webkit-scrollbar{height:8px}
+.strip::-webkit-scrollbar-thumb{background:#9bb3b9;border-radius:8px}
+
+/* what you can do */
+.do-grid{display:grid;gap:clamp(16px,2.4vw,28px)}
+@media (min-width:760px){.do-grid{grid-template-columns:1fr 1fr}.do-grid .wide{grid-column:1/-1}}
+.do-item{display:grid;gap:14px;align-content:start}
+.do-item .shot{box-shadow:0 18px 40px -22px rgba(42,23,8,.7)}
+.do-item h3{margin-top:4px}
+.do-item p{max-width:46ch}
+.wide.do-item{gap:20px}
+@media (min-width:900px){.wide.split{grid-template-columns:1.5fr 1fr;align-items:center;gap:40px}.wide.split.flip{grid-template-columns:1fr 1.5fr}.wide.split.flip .dial{order:2}}
+.dial{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#000;box-shadow:0 18px 40px -22px rgba(42,23,8,.7)}
+.dial img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s}
+.dial img.on{opacity:1}
+.clock{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:rgba(42,23,8,.12);margin-top:6px}
+.clock button{font:inherit;font-weight:600;font-size:.95rem;padding:9px 18px;min-height:44px;border:0;border-radius:999px;background:transparent;color:var(--amber-ink);cursor:pointer}
+.clock button[aria-pressed=true]{background:var(--amber-ink);color:var(--gold)}
+.clock button:focus-visible{outline-color:var(--amber-ink)}
+
+/* watch */
+.watch{display:grid;gap:32px;align-items:center}
+@media (min-width:900px){.watch{grid-template-columns:1.3fr 1fr;gap:56px}}
+.player{position:relative;display:block;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:var(--night-2);text-decoration:none;border:1px solid var(--night-line)}
+.player img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) brightness(.62);transition:filter .3s,transform .6s}
+.player::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(10,26,33,.8))}
+.player i,.player span{z-index:1}
+.player:hover img{filter:saturate(1) brightness(.78);transform:scale(1.03)}
+.player i{position:absolute;left:20px;bottom:16px;width:52px;height:52px;border-radius:50%;background:var(--gold);display:grid;place-items:center}
+.player i::after{content:"";margin-left:4px;border-left:15px solid var(--amber-ink);border-block:10px solid transparent}
+.player span{position:absolute;left:86px;right:20px;bottom:16px;min-height:52px;display:flex;align-items:center;font-size:clamp(1.1rem,2.2vw,1.5rem);font-weight:300;letter-spacing:-.01em;color:#fff}
+.watch .on-night-copy{display:grid;gap:18px}
+.watch p{color:var(--mist);max-width:42ch}
+.link-gold{color:var(--gold);font-weight:600}
+
+/* steam */
+.steam{display:grid;gap:36px}
+@media (min-width:900px){.steam{grid-template-columns:1fr 1fr;gap:64px;align-items:start}}
+.steam ul{margin:0;padding:0;list-style:none;display:grid;gap:0;border-top:1px solid var(--night-line)}
+.steam li{padding:14px 0;border-bottom:1px solid var(--night-line);color:#d9e6e9}
+.steam .big{font-size:clamp(2.1rem,5.2vw,3.9rem);font-weight:300;letter-spacing:-.02em;line-height:1.05;color:var(--gold)}
+.steam .copy{display:grid;gap:18px}
+.steam .copy p{color:var(--mist);max-width:46ch}
+.steam .note{font-size:.95rem}
+
+/* follow */
+.follow{border-top:1px solid var(--night-line)}
+.follow .row{display:grid;gap:20px}
+@media (min-width:900px){.follow .row{grid-template-columns:1fr 1fr;gap:64px;align-items:start}}
+.links{list-style:none;margin:0;padding:0}
+.links li{border-bottom:1px solid var(--night-line)}
+.links li:first-child{border-top:1px solid var(--night-line)}
+.links a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 4px;text-decoration:none;font-size:clamp(1.35rem,3vw,1.9rem);font-weight:300;letter-spacing:-.01em;transition:padding .2s,color .2s}
+.links a{flex-wrap:wrap}
+.links a span{overflow-wrap:anywhere;font-size:.92rem;color:var(--mist);letter-spacing:0;font-weight:400}
+.links a:hover{color:var(--gold);padding-left:14px}
+
+/* footer */
+.site-footer{background:#06131a;color:#c4d5d9;padding:40px 0 48px;font-size:.92rem;line-height:1.7}
+.site-footer .wrap{display:grid;gap:14px}
+.site-footer p{max-width:70ch}
+.site-footer a{color:#e8f0f1}
+.site-footer .mark{display:flex;align-items:center;gap:10px;color:#fff;font-weight:600}
+.site-footer .mark img{width:28px;height:28px;border-radius:7px}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero img.bg{animation:none}
+  .dial img,.player img,.links a,.btn{transition:none}
+}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<header>
+<header class="site-header">
   <div class="wrap">
-    <a class="brand" href="/"><img src="/img/favicon-192.png" alt="" width="36" height="36">City Tour Simulator</a>
+    <a class="brand" href="/" aria-label="City Tour Simulator, home"><img src="/img/favicon-192.png" width="40" height="40" alt=""><span>City Tour Simulator</span></a>
     <nav aria-label="Main">
       <a href="#tours">Tours</a>
-      <a href="#features">Features</a>
-      <a href="#video">Video</a>
-      <a href="#follow">Follow</a>
+      <a href="#explore">Explore</a>
+      <a href="#watch">Watch</a>
+      <a href="#steam">Steam</a>
+      <a class="keep" href="#follow">Follow</a>
     </nav>
   </div>
 </header>
 
-<main>
-  <div class="hero">
-    <div class="wrap">
-      <img class="logo" src="/img/logo.png" alt="City Tour Simulator" width="900" height="506">
-      <h1 class="tagline">Explore real cities</h1>
-      <p class="lede">Fly over landmarks on narrated guided tours, walk the streets, jump anywhere with fast travel, and explore with friends. A new city every month.</p>
-      <div class="cta">
-        <span class="pill">Coming to Steam</span>
-        <a class="pill ghost" href="https://www.youtube.com/@citytoursim" rel="noopener">Watch on YouTube</a>
-      </div>
+<main id="main">
+
+<section class="hero" aria-labelledby="title">
+  <picture>
+    <source media="(max-width:700px)" srcset="/img/hero-mobile.jpg">
+    <img class="bg" src="/img/hero-2400.jpg" width="2400" height="775" alt="The Golden Gate Bridge glowing orange at golden hour, seen from above in City Tour Simulator" fetchpriority="high">
+  </picture>
+  <div class="wrap">
+    <h1 id="title"><img src="/img/logo.webp" width="900" height="506" alt="City Tour Simulator"></h1>
+    <p class="tagline">Explore real cities</p>
+    <p class="lede">Fly between landmarks on narrated tours, walk the streets, and meet friends in the same city. Photorealistic 3D, with a new city every month.</p>
+    <div class="cta">
+      <a class="btn btn-solid" href="https://www.youtube.com/@citytoursim" rel="noopener">Watch on YouTube</a>
+      <a class="btn btn-line" href="#steam">Coming to Steam</a>
+    </div>
+  </div>
+</section>
+
+<section class="section on-day" id="tours" aria-labelledby="tours-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="tours-h">A guide who flies you there</h2>
+      <p class="lede sub">Pick a city and the camera glides from landmark to landmark while the narrator tells each story: when the Golden Gate opened, why it is orange, what happened on Alcatraz.</p>
+    </div>
+    <div class="tour">
+      <figure class="shot">
+        <img src="/img/tour-golden-gate.webp" width="1280" height="720" loading="lazy" decoding="async" alt="A guided tour stop at the Golden Gate Bridge, with the narration panel, tour progress and minimap controls on screen">
+      </figure>
+      <dl class="tour-facts">
+        <div><dt>Short and long tours</dt><dd>A tour of 15 highlights when you have an evening, and one of 30 when you want the whole city.</dd></div>
+        <div><dt>Pause any time</dt><dd>Step out, walk around the neighbourhood, then pick the tour back up where you left it.</dd></div>
+        <div><dt>Always oriented</dt><dd>A minimap shows where you are and where the tour goes next. Subtitles are built in.</dd></div>
+      </dl>
+    </div>
+    <div class="tour-more">
+      <figure class="shot"><img src="/img/tour-twin-peaks.webp" width="1280" height="720" loading="lazy" decoding="async" alt="Twin Peaks and the San Francisco skyline from above, at a tour stop"><figcaption class="cap">Twin Peaks, San Francisco</figcaption></figure>
+      <figure class="shot"><img src="/img/tour-alcatraz.webp" width="1280" height="720" loading="lazy" decoding="async" alt="Alcatraz Island in San Francisco Bay, at a tour stop"><figcaption class="cap">Alcatraz Island, San Francisco</figcaption></figure>
     </div>
   </div>
 
-  <section id="tours">
+  <div class="cities-wrap" id="cities">
     <div class="wrap">
-      <h2>Narrated city tours</h2>
-      <p class="sub">Every city has a short tour of 15 highlights and a long tour of 30. The camera glides to each landmark while the narrator tells its story. Pause anytime, step out and explore on foot, then pick the tour back up.</p>
-      <ul class="cities" aria-label="Launch cities">
-        <li><img src="/img/city-sf.jpg" alt="San Francisco from above" width="480" height="270" loading="lazy"><span>San Francisco</span></li>
-        <li><img src="/img/city-ghent.jpg" alt="Ghent from above" width="480" height="270" loading="lazy"><span>Ghent</span></li>
-        <li><img src="/img/city-nyc.jpg" alt="New York from above" width="480" height="270" loading="lazy"><span>New York</span></li>
-        <li><img src="/img/city-paris.jpg" alt="Paris from above" width="480" height="270" loading="lazy"><span>Paris</span></li>
-        <li><img src="/img/city-london.jpg" alt="London from above" width="480" height="270" loading="lazy"><span>London</span></li>
-        <li><img src="/img/city-tokyo.jpg" alt="Tokyo from above" width="480" height="270" loading="lazy"><span>Tokyo</span></li>
-      </ul>
-      <div class="shots">
-        <figure><img src="/img/show-golden-gate.jpg" alt="The Golden Gate Bridge at golden hour" width="1200" height="675" loading="lazy"></figure>
-        <figure><img src="/img/show-twin-peaks.jpg" alt="San Francisco seen from Twin Peaks" width="1200" height="675" loading="lazy"></figure>
-        <figure><img src="/img/show-graslei.jpg" alt="Ghent and the Graslei waterfront" width="1200" height="675" loading="lazy"></figure>
-        <figure><img src="/img/show-st-michaels.jpg" alt="Ghent and Saint Michael's Bridge" width="1200" height="675" loading="lazy"></figure>
-      </div>
+      <h3>Cities</h3>
+      <p>Real streets and skylines, streamed while you play.</p>
     </div>
-  </section>
+    <ul class="strip" tabindex="0" aria-label="Cities in City Tour Simulator, scroll sideways">
+      <li><span class="city"><img src="/img/city-sf.webp" width="480" height="270" loading="lazy" alt="San Francisco from above"><b>San Francisco<small>Golden Gate to Twin Peaks</small></b></span></li>
+      <li><span class="city"><img src="/img/city-ghent.webp" width="480" height="270" loading="lazy" alt="Ghent from above, with canals and church towers"><b>Ghent<small>Graslei and the three towers</small></b></span></li>
+      <li><span class="city"><img src="/img/city-nyc.webp" width="480" height="270" loading="lazy" alt="New York from above"><b>New York</b></span></li>
+      <li><span class="city"><img src="/img/city-paris.webp" width="480" height="270" loading="lazy" alt="Paris from above"><b>Paris</b></span></li>
+      <li><span class="city"><img src="/img/city-london.webp" width="480" height="270" loading="lazy" alt="London from above"><b>London</b></span></li>
+      <li><span class="city"><img src="/img/city-tokyo.webp" width="480" height="270" loading="lazy" alt="Tokyo from above"><b>Tokyo</b></span></li>
+      <li><span class="city next"><b>Next month<small>A new city arrives every month, on the same day its season starts on YouTube.</small></b></span></li>
+    </ul>
+  </div>
+</section>
 
-  <section id="features" class="alt">
-    <div class="wrap">
-      <h2>Real cities, explored your way</h2>
-      <p class="sub">City Tour Simulator streams the real world in photorealistic 3D. Pick a city and go.</p>
-      <div class="grid">
-        <div class="card"><h3>Walk, climb, fly</h3><p>Walk the streets, climb onto rooftops, take to the sky with a jetpack, or let a guide fly you from landmark to landmark.</p></div>
-        <div class="card"><h3>Fast travel and free roam</h3><p>Jump straight to the sights, then wander. A minimap shows where you are and where the tour goes next.</p></div>
-        <div class="card"><h3>Golden hour, any hour</h3><p>Follow the clock from morning light to night, when street lamps and shop windows light up.</p></div>
-        <div class="card"><h3>Explore together</h3><p>Host a city and invite friends: walk, fly and tour side by side.</p></div>
-        <div class="card"><h3>Made to be comfortable</h3><p>Subtitles, keyboard, mouse and controller support. No violence, just exploring.</p></div>
-        <div class="card"><h3>A growing world</h3><p>A new city every month, released on the same day as its season on our YouTube channel.</p></div>
-      </div>
+<section class="section on-amber" id="explore" aria-labelledby="explore-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="explore-h">Leave the tour whenever you like</h2>
+      <p class="lede">The city is not a backdrop. Land anywhere, go on foot, and see it the way you would if you were there.</p>
     </div>
-  </section>
+    <div class="do-grid">
+      <article class="do-item">
+        <figure class="shot"><img src="/img/walk.webp" width="1280" height="720" loading="lazy" decoding="async" alt="A street in San Francisco's Mission District at golden hour, seen from the pavement"></figure>
+        <h3>Walk the streets</h3>
+        <p>Drop to ground level and wander. Shop fronts, trees and kerbs are all there.</p>
+      </article>
+      <article class="do-item">
+        <figure class="shot"><img src="/img/climb.webp" width="1280" height="720" loading="lazy" decoding="async" alt="A rooftop in San Francisco with neighbouring buildings and a bright sky"></figure>
+        <h3>Climb onto rooftops</h3>
+        <p>Ladders and ledges take you up for the view the street never gives you.</p>
+      </article>
+      <article class="do-item wide split">
+        <figure class="shot"><img src="/img/jetpack.webp" width="1280" height="720" loading="lazy" decoding="async" alt="Flying over San Francisco with a jetpack, gloved hands in view, the downtown skyline ahead"></figure>
+        <div>
+          <h3>Take off with a jetpack</h3>
+          <p style="margin-top:10px">Skip the stairs. Lift above the rooftops and cross a neighbourhood in seconds.</p>
+        </div>
+      </article>
+      <article class="do-item">
+        <figure class="shot"><img src="/img/fast-travel.webp" width="1280" height="720" loading="lazy" decoding="async" alt="The fast travel menu listing San Francisco landmarks such as Dolores Park, Twin Peaks and the Golden Gate Bridge"></figure>
+        <h3>Fast travel</h3>
+        <p>Jump straight to the sights, then wander from there.</p>
+      </article>
+      <article class="do-item">
+        <figure class="shot"><img src="/img/coop.webp" width="1280" height="720" loading="lazy" decoding="async" alt="Two players in the same city: a friend's avatar stands in Dolores Park, San Francisco"></figure>
+        <h3>Explore with friends</h3>
+        <p>Host a city and invite friends. Walk, fly and tour side by side.</p>
+      </article>
+      <article class="do-item wide split flip" id="time">
+        <div class="dial" id="dial">
+          <img class="on" data-t="day" src="/img/day.webp" width="1280" height="720" loading="lazy" alt="Mission District street in full daylight">
+          <img data-t="golden" src="/img/walk.webp" width="1280" height="720" loading="lazy" alt="The same street at golden hour, with long shadows">
+          <img data-t="night" src="/img/night.webp" width="1280" height="720" loading="lazy" alt="The same street at night, with lit shop windows and street lamps">
+        </div>
+        <div>
+          <h3>Golden hour, any hour</h3>
+          <p style="margin-top:10px">Follow the clock from morning light to night, when street lamps and shop windows light up.</p>
+          <div class="clock" role="group" aria-label="Time of day">
+            <button type="button" data-t="day" aria-pressed="true">Day</button>
+            <button type="button" data-t="golden" aria-pressed="false">Golden hour</button>
+            <button type="button" data-t="night" aria-pressed="false">Night</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
-  <section id="video">
-    <div class="wrap">
-      <h2>Watch the tours</h2>
-      <div class="video">
-        <p>The first season goes live on 7 December.</p>
-        <p><a href="https://www.youtube.com/@citytoursim" rel="noopener">Subscribe on YouTube</a> to catch it.</p>
-      </div>
+<section class="section on-night" id="watch" aria-labelledby="watch-h">
+  <div class="wrap watch">
+    <a class="player" href="https://www.youtube.com/@citytoursim" rel="noopener" aria-label="Open the City Tour Simulator YouTube channel">
+      <img src="/img/load-twin-peaks.webp" width="1600" height="900" loading="lazy" decoding="async" alt="">
+      <i aria-hidden="true"></i>
+      <span>Season one. Starts 7 December.</span>
+    </a>
+    <div class="on-night-copy">
+      <h2 id="watch-h">Take the tours on YouTube</h2>
+      <p>Every city has a season on our channel: the full tours, plus a short every day. Season one begins on 7 December.</p>
+      <p><a class="link-gold" href="https://www.youtube.com/@citytoursim" rel="noopener">Visit the channel and subscribe</a></p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="follow" class="alt">
-    <div class="wrap">
-      <h2>Follow along</h2>
-      <p class="sub">The game is coming to Steam. Follow us for new tours and release news.</p>
-      <ul class="links">
-        <li><a href="https://www.youtube.com/@citytoursim" rel="noopener">YouTube</a></li>
-        <li><a href="https://www.instagram.com/citytoursim/" rel="noopener">Instagram</a></li>
-        <li><a href="https://www.facebook.com/citytoursim" rel="noopener">Facebook</a></li>
-        <li><a href="https://bsky.app/profile/citytoursim.bsky.social" rel="noopener">Bluesky</a></li>
-        <li><a href="mailto:hello@citytoursim.com">hello@citytoursim.com</a></li>
-      </ul>
+<section class="section on-night" id="steam" aria-labelledby="steam-h" style="padding-top:0">
+  <div class="wrap steam">
+    <div class="copy">
+      <h2 id="steam-h" class="big" style="max-width:none">Coming to Steam</h2>
+      <p>City Tour Simulator is heading to Steam. We will post the store page here and on our channels as soon as it is up.</p>
+      <p class="note">Needs an internet connection: the cities stream in while you play.</p>
     </div>
-  </section>
+    <ul>
+      <li>Photorealistic 3D cities, streamed from Google Maps</li>
+      <li>Narrated tours with 15 or 30 stops per city</li>
+      <li>Walk, climb, fly with a jetpack, fast travel</li>
+      <li>Day and night, with golden-hour light</li>
+      <li>Online co-op exploration with friends</li>
+      <li>Minimap, subtitles, keyboard, mouse and controller</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section on-night follow" id="follow" aria-labelledby="follow-h">
+  <div class="wrap row">
+    <h2 id="follow-h">Follow the journey</h2>
+    <ul class="links">
+      <li><a href="https://www.youtube.com/@citytoursim" rel="noopener">YouTube<span>Tours and shorts</span></a></li>
+      <li><a href="https://www.instagram.com/citytoursim/" rel="noopener">Instagram<span>@citytoursim</span></a></li>
+      <li><a href="https://bsky.app/profile/citytoursim.bsky.social" rel="noopener">Bluesky<span>@citytoursim.bsky.social</span></a></li>
+      <li><a href="https://www.facebook.com/citytoursim" rel="noopener">Facebook<span>citytoursim</span></a></li>
+      <li><a href="mailto:hello@citytoursim.com">Email<span>hello@citytoursim.com</span></a></li>
+    </ul>
+  </div>
+</section>
+
 </main>
 
-<footer>
+<footer class="site-footer">
   <div class="wrap">
+    <div class="mark"><img src="/img/favicon-192.png" width="28" height="28" alt="">City Tour Simulator</div>
     <p>Map data ©Google. 3D tiles: Google Maps Platform, streamed with Cesium. Minimap © OpenStreetMap contributors. Narration voice by ElevenLabs.</p>
-    <p>© City Tour Simulator. This site uses no cookies, analytics or tracking.</p>
+    <p>City Tour Simulator is an independent game. Screenshots are taken in the game and show the Google and Cesium credits, as required.</p>
   </div>
 </footer>
 
+<script>
+(function(){
+  var dial=document.getElementById('dial'); if(!dial) return;
+  var imgs=dial.querySelectorAll('img'), btns=document.querySelectorAll('.clock button');
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=b.getAttribute('data-t');
+      imgs.forEach(function(i){i.classList.toggle('on',i.getAttribute('data-t')===t)});
+      btns.forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false')});
+    });
+  });
+})();
+</script>
 </body>
 </html>
