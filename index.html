@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>City Tour Simulator: Explore real cities</title>
-<meta name="description" content="Explore real cities from above and on foot. Narrated guided tours in photorealistic 3D: San Francisco, Ghent, New York, Paris, London and Tokyo, with a new city every month. Coming to Steam.">
+<title>City Tour Simulator: Explore real cities in 3D</title>
+<meta name="description" content="Fly over real cities on narrated tours, then land and explore on foot. Photorealistic 3D, co-op with friends, a new city every month. Coming to Steam.">
 <meta name="theme-color" content="#0a1a21">
 <link rel="icon" type="image/svg+xml" href="/img/icon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
@@ -13,14 +13,16 @@
 <link rel="canonical" href="https://citytoursim.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="City Tour Simulator">
-<meta property="og:title" content="City Tour Simulator: Explore real cities">
-<meta property="og:description" content="Narrated tours of real cities in photorealistic 3D. Walk, climb, fly, or explore together. A new city every month. Coming to Steam.">
+<meta property="og:title" content="City Tour Simulator: Explore real cities in 3D">
+<meta property="og:description" content="Fly over real cities on narrated tours, then land and walk the streets. Photorealistic 3D, with friends, and a new city every month. Coming to Steam.">
 <meta property="og:url" content="https://citytoursim.com/">
 <meta property="og:image" content="https://citytoursim.com/og.jpg?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="City Tour Simulator logo over the Golden Gate Bridge at golden hour">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@citytoursim">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"City Tour Simulator","url":"https://citytoursim.com/","description":"Narrated tours of real cities in photorealistic 3D. Fly between landmarks, walk the streets, explore with friends.","image":"https://citytoursim.com/og.jpg","sameAs":["https://www.youtube.com/@citytoursim","https://www.instagram.com/citytoursim/","https://www.tiktok.com/@citytoursim","https://x.com/citytoursim","https://bsky.app/profile/citytoursim.bsky.social","https://www.threads.com/@citytoursim","https://www.facebook.com/citytoursim","https://www.reddit.com/r/citytoursim/"]}</script>
 <link rel="preload" as="image" href="/img/hero-2400.jpg" media="(min-width:701px)">
 <style>
 :root{
@@ -110,7 +112,8 @@ p{margin:0}
 .city::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,26,33,0) 38%,rgba(10,26,33,.82) 100%)}
 .city b{position:absolute;left:18px;right:18px;bottom:14px;z-index:1;font-weight:300;font-size:clamp(1.9rem,3.2vw,2.5rem);letter-spacing:-.025em;line-height:1}
 .city small{display:block;font-size:.88rem;font-weight:400;letter-spacing:0;margin-top:6px;color:#dbe8ea}
-.city.next{display:grid;align-content:end;padding:18px;background:transparent;border:1.5px dashed #6d8a91;color:var(--ink)}
+.city.next{display:grid;align-content:end;padding:18px;background:transparent;border:1.5px dashed #6d8a91;color:var(--ink);text-decoration:none;transition:border-color .15s,background .15s}
+a.city.next:hover{border-color:var(--ink);background:rgba(16,36,43,.05)}
 .city.next::after{display:none}
 .city.next b{position:static}
 .city.next small{color:var(--ink-soft)}
@@ -158,6 +161,16 @@ p{margin:0}
 .steam .copy{display:grid;gap:18px}
 .steam .copy p{color:var(--mist);max-width:46ch}
 .steam .note{font-size:.95rem}
+
+/* faq */
+.faq .list{max-width:860px;border-top:1px solid #b3c8ce}
+.faq details{border-bottom:1px solid #b3c8ce}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:20px 4px;font-size:clamp(1.2rem,2.4vw,1.55rem);font-weight:300;letter-spacing:-.01em;line-height:1.25}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;color:var(--ink-soft);font-size:1.7rem;line-height:1}
+.faq details[open] summary::after{content:"\2013"}
+.faq details p{padding:0 4px 24px;color:var(--ink-soft);max-width:62ch}
+.faq details a{color:var(--ink)}
 
 /* follow */
 .follow{border-top:1px solid var(--night-line)}
@@ -211,9 +224,9 @@ p{margin:0}
   </picture>
   <div class="wrap">
     <h1 id="title" class="tagline"><span class="sr">City Tour Simulator: </span>Explore real cities</h1>
-    <p class="lede">Fly between landmarks on narrated tours, walk the streets, and meet friends in the same city. Photorealistic 3D, with a new city every month.</p>
+    <p class="lede">Fly over a real city on a narrated tour, then land and walk its streets, alone or with friends. Photorealistic 3D, and a new city every month.</p>
     <div class="cta">
-      <a class="btn btn-solid" href="https://www.youtube.com/@citytoursim" rel="noopener">Watch on YouTube</a>
+      <a class="btn btn-solid" href="https://www.youtube.com/@citytoursim" rel="noopener">Watch the tours</a>
       <a class="btn btn-line" href="#steam">Coming to Steam</a>
     </div>
   </div>
@@ -222,17 +235,17 @@ p{margin:0}
 <section class="section on-day" id="tours" aria-labelledby="tours-h">
   <div class="wrap">
     <div class="head">
-      <h2 id="tours-h">A guide who flies you there</h2>
-      <p class="lede sub">Pick a city and the camera glides from landmark to landmark while the narrator tells each story: when the Golden Gate opened, why it is orange, what happened on Alcatraz.</p>
+      <h2 id="tours-h">Every landmark comes with a story</h2>
+      <p class="lede sub">Pick a city and the camera glides from stop to stop while a narrator tells you what happened there: when the Golden Gate opened, why it is orange, what went on at Alcatraz.</p>
     </div>
     <div class="tour">
       <figure class="shot">
         <img src="/img/tour-golden-gate.webp" width="1280" height="720" loading="lazy" decoding="async" alt="A guided tour stop at the Golden Gate Bridge, with the narration panel, tour progress and minimap controls on screen">
       </figure>
       <dl class="tour-facts">
-        <div><dt>Short and long tours</dt><dd>A tour of 15 highlights when you have an evening, and one of 30 when you want the whole city.</dd></div>
-        <div><dt>Pause any time</dt><dd>Step out, walk around the neighbourhood, then pick the tour back up where you left it.</dd></div>
-        <div><dt>Always oriented</dt><dd>A minimap shows where you are and where the tour goes next. Subtitles are built in.</dd></div>
+        <div><dt>Short and long tours</dt><dd>Fifteen stops for an evening, thirty when you want the whole city.</dd></div>
+        <div><dt>Pause any time</dt><dd>Step out, walk the neighbourhood, then rejoin the tour where you left it.</dd></div>
+        <div><dt>Always oriented</dt><dd>A minimap shows where you are and where the tour heads next, and subtitles are built in.</dd></div>
       </dl>
     </div>
     <div class="tour-more">
@@ -243,7 +256,7 @@ p{margin:0}
 
   <div class="cities-wrap" id="cities">
     <div class="wrap">
-      <h3>Cities</h3>
+      <h3>Six cities now, a new one every month</h3>
       <p>Real streets and skylines, streamed while you play.</p>
     </div>
     <ul class="strip" tabindex="0" aria-label="Cities in City Tour Simulator, scroll sideways">
@@ -253,7 +266,7 @@ p{margin:0}
       <li><span class="city"><img src="/img/city-paris.webp" width="480" height="270" loading="lazy" alt="Paris from above"><b>Paris</b></span></li>
       <li><span class="city"><img src="/img/city-london.webp" width="480" height="270" loading="lazy" alt="London from above"><b>London</b></span></li>
       <li><span class="city"><img src="/img/city-tokyo.webp" width="480" height="270" loading="lazy" alt="Tokyo from above"><b>Tokyo</b></span></li>
-      <li><span class="city next"><b>Next month<small>A new city arrives every month, on the same day its season starts on YouTube.</small></b></span></li>
+      <li><a class="city next" href="/support/"><b>Your city next?<small>A new city arrives every month. Back the one you want to see, and it moves up the list.</small></b></a></li>
     </ul>
   </div>
 </section>
@@ -268,12 +281,12 @@ p{margin:0}
       <article class="do-item">
         <figure class="shot"><img src="/img/walk.webp" width="1280" height="720" loading="lazy" decoding="async" alt="A street in San Francisco's Mission District at golden hour, seen from the pavement"></figure>
         <h3>Walk the streets</h3>
-        <p>Drop to ground level and wander. Shop fronts, trees and kerbs are all there.</p>
+        <p>Drop to street level and wander. Shop fronts, trees and kerbs are all there.</p>
       </article>
       <article class="do-item">
         <figure class="shot"><img src="/img/climb.webp" width="1280" height="720" loading="lazy" decoding="async" alt="A rooftop in San Francisco with neighbouring buildings and a bright sky"></figure>
         <h3>Climb onto rooftops</h3>
-        <p>Ladders and ledges take you up for the view the street never gives you.</p>
+        <p>Ladders and ledges lead to views the street never gives you.</p>
       </article>
       <article class="do-item wide split">
         <figure class="shot"><img src="/img/jetpack.webp" width="1280" height="720" loading="lazy" decoding="async" alt="Flying over San Francisco with a jetpack, gloved hands in view, the downtown skyline ahead"></figure>
@@ -285,7 +298,7 @@ p{margin:0}
       <article class="do-item">
         <figure class="shot"><img src="/img/fast-travel.webp" width="1280" height="720" loading="lazy" decoding="async" alt="The fast travel menu listing San Francisco landmarks such as Dolores Park, Twin Peaks and the Golden Gate Bridge"></figure>
         <h3>Fast travel</h3>
-        <p>Jump straight to the sights, then wander from there.</p>
+        <p>Jump to any sight, then wander from there.</p>
       </article>
       <article class="do-item">
         <figure class="shot"><img src="/img/coop.webp" width="1280" height="720" loading="lazy" decoding="async" alt="Two players in the same city: a friend's avatar stands in Dolores Park, San Francisco"></figure>
@@ -320,9 +333,9 @@ p{margin:0}
       <span>Season one. Starts 7 December.</span>
     </a>
     <div class="on-night-copy">
-      <h2 id="watch-h">Take the tours on YouTube</h2>
-      <p>Every city has a season on our channel: the full tours, plus a short every day. Season one begins on 7 December.</p>
-      <p><a class="link-gold" href="https://www.youtube.com/@citytoursim" rel="noopener">Visit the channel and subscribe</a></p>
+      <h2 id="watch-h">Watch the tours first</h2>
+      <p>Every city gets a season on our channel: the full tours, plus a short every day. Season one starts on 7 December.</p>
+      <p><a class="link-gold" href="https://www.youtube.com/@citytoursim" rel="noopener">Subscribe on YouTube</a></p>
     </div>
   </div>
 </section>
@@ -331,7 +344,7 @@ p{margin:0}
   <div class="wrap steam">
     <div class="copy">
       <h2 id="steam-h" class="big" style="max-width:none">Coming to Steam</h2>
-      <p>City Tour Simulator is heading to Steam. We will post the store page here and on our channels as soon as it is up.</p>
+      <p>City Tour Simulator is heading to Steam. The store page will appear here and on our channels as soon as it is live.</p>
       <p class="note">Needs an internet connection: the cities stream in while you play.</p>
     </div>
     <ul>
@@ -345,14 +358,31 @@ p{margin:0}
   </div>
 </section>
 
+<section class="section on-day faq" id="faq" aria-labelledby="faq-h">
+  <div class="wrap">
+    <div class="head"><h2 id="faq-h">Questions</h2></div>
+    <div class="list">
+      <details><summary>What is City Tour Simulator?</summary><p>A game where you visit real cities in photorealistic 3D. Fly between landmarks on narrated tours, or land and explore on foot, alone or with friends.</p></details>
+      <details><summary>Which cities can I visit?</summary><p>San Francisco, Ghent, New York, Paris, London and Tokyo, with a new city every month. Want yours? <a href="/support/">Back a city</a> and help it move up the list.</p></details>
+      <details><summary>Do I need an internet connection?</summary><p>Yes. The cities stream in while you play, using Google's 3D map data.</p></details>
+      <details><summary>Can I play with friends?</summary><p>Yes. Host a city and invite friends to walk, fly and tour side by side.</p></details>
+      <details><summary>When does it come out?</summary><p>It is heading to Steam. We will share the date and the store page here and on our channels. The tours start on YouTube on 7 December.</p></details>
+    </div>
+  </div>
+</section>
+
 <section class="section on-night follow" id="follow" aria-labelledby="follow-h">
   <div class="wrap row">
     <h2 id="follow-h">Follow the journey</h2>
     <ul class="links">
       <li><a href="https://www.youtube.com/@citytoursim" rel="noopener">YouTube<span>Tours and shorts</span></a></li>
       <li><a href="https://www.instagram.com/citytoursim/" rel="noopener">Instagram<span>@citytoursim</span></a></li>
+      <li><a href="https://www.tiktok.com/@citytoursim" rel="noopener">TikTok<span>@citytoursim</span></a></li>
+      <li><a href="https://x.com/citytoursim" rel="noopener">X<span>@citytoursim</span></a></li>
       <li><a href="https://bsky.app/profile/citytoursim.bsky.social" rel="noopener">Bluesky<span>@citytoursim.bsky.social</span></a></li>
+      <li><a href="https://www.threads.com/@citytoursim" rel="noopener">Threads<span>@citytoursim</span></a></li>
       <li><a href="https://www.facebook.com/citytoursim" rel="noopener">Facebook<span>citytoursim</span></a></li>
+      <li><a href="https://www.reddit.com/r/citytoursim/" rel="noopener">Reddit<span>r/citytoursim</span></a></li>
       <li><a href="mailto:hello@citytoursim.com">Email<span>hello@citytoursim.com</span></a></li>
     </ul>
   </div>
