@@ -119,7 +119,7 @@ a.btn-line:hover{background:var(--gold);color:var(--amber-ink)}
     <h2 id="how-h" class="sr">How it works</h2>
     <ol class="how">
       <li><strong>Choose a city</strong> and support the project with any amount, by card (including Apple Pay and Google Pay) or Bitcoin. Checkout opens on the payment provider's own page.</li>
-      <li><strong>One supporter, one vote</strong> per city per month, however much they give, so a single large payment cannot decide the vote. The amount shows separately as funding progress.</li>
+      <li><strong>One supporter, one vote</strong> per city per month, however much they give, so a single large payment cannot decide the vote. The amount raised is shown next to the votes.</li>
       <li><strong>When the month's vote closes</strong>, the city with the most votes is next, once we have checked its 3D coverage and quality. A city takes 6 to 8 weeks to make, so each vote decides the release about two months later.</li>
     </ol>
     <div class="terms">
@@ -183,19 +183,18 @@ a.btn-line:hover{background:var(--gold);color:var(--amber-ink)}
     document.getElementById('since').textContent=since.join(' ');
     var cities=(d.cities||[]).map(function(c,i){c._i=i;return c});
     cities.sort(function(a,b){return (b.votes||0)-(a.votes||0)||(b.raised_usd||0)-(a.raised_usd||0)||a._i-b._i});
-    var rank=0;
+    var rank=0, top=cities.length?(cities[0].votes||0):0;
     cities.forEach(function(c){
-      var li=el('li','city'), votes=c.votes||0, raised=c.raised_usd||0, goal=c.goal_usd||0;
+      var li=el('li','city'), votes=c.votes||0, raised=c.raised_usd||0;
       if(votes>0)rank++;
       var r=el('span','rank',votes>0?String(rank):'');r.setAttribute('aria-hidden','true');li.appendChild(r);
       var n=el('div','name',c.name);n.appendChild(el('small',null,c.country||''));li.appendChild(n);
-      var m=el('div','meter'), bar=el('div','bar'), fill=el('i');
-      fill.style.width=(goal>0?Math.min(100,raised/goal*100):0)+'%';bar.appendChild(fill);
-      bar.setAttribute('role','progressbar');bar.setAttribute('aria-valuemin','0');bar.setAttribute('aria-valuemax',String(goal));bar.setAttribute('aria-valuenow',String(raised));
-      bar.setAttribute('aria-label',c.name+' funding: '+money(raised,cur)+' of '+money(goal,cur));
+      var m=el('div','meter');
       var nums=el('p','nums');nums.appendChild(el('b',null,votes+(votes===1?' vote':' votes')));
-      nums.appendChild(document.createTextNode(', '+money(raised,cur)+' of '+money(goal,cur)+' funding goal'));
-      m.appendChild(nums);m.appendChild(bar);li.appendChild(m);
+      nums.appendChild(document.createTextNode(', '+money(raised,cur)+' raised'));
+      m.appendChild(nums);
+      if(top>0){var bar=el('div','bar'),fill=el('i');fill.style.width=(votes/top*100)+'%';bar.appendChild(fill);bar.setAttribute('aria-hidden','true');m.appendChild(bar)}
+      li.appendChild(m);
       var acts=el('div','acts');
       acts.appendChild(button('Support with card','Card',c.stripe_link,open,true,c.name));
       acts.appendChild(button('Support with Bitcoin','Bitcoin',c.bitcoin_link,open,false,c.name));
