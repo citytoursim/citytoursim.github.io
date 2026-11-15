@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Support a city: City Tour Simulator</title>
-<meta name="description" content="Vote for the next city in City Tour Simulator. Each month, supporters decide which city we build next.">
+<title>Back a city: City Tour Simulator</title>
+<meta name="description" content="Back your hometown or the city you want to explore in City Tour Simulator. The most-backed new city is built next.">
 <meta name="theme-color" content="#0a1a21">
 <link rel="icon" type="image/svg+xml" href="/img/icon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Support a city: City Tour Simulator">
-<meta property="og:description" content="Vote for the next city we build.">
+<meta property="og:title" content="Back a city: City Tour Simulator">
+<meta property="og:description" content="Back your hometown or the city you want to explore. The most-backed new city is built next.">
 <meta property="og:image" content="https://citytoursim.com/og.jpg?v=2">
 <meta name="twitter:card" content="summary_large_image">
 <style>
@@ -29,9 +29,9 @@ a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1px}
 .wrap{width:min(1040px,100% - 2*var(--gutter));margin-inline:auto}
 .skip{position:absolute;left:12px;top:-60px;z-index:20;background:var(--gold);color:var(--amber-ink);padding:10px 16px;border-radius:6px;font-weight:600}
 .skip:focus{top:12px}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 h1,h2{margin:0;font-weight:300;letter-spacing:-.02em;line-height:1.05}
 p{margin:0}
+[hidden]{display:none!important}
 
 .site-header{padding:18px 0;border-bottom:1px solid var(--night-line)}
 .site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
@@ -40,56 +40,54 @@ p{margin:0}
 .site-header nav a{font-size:.95rem;text-decoration:none;border-bottom:1px solid transparent;padding:6px 0}
 .site-header nav a:hover{border-color:var(--gold)}
 
-.intro{padding:clamp(48px,8vw,96px) 0 clamp(32px,5vw,56px);display:grid;gap:22px}
-.intro h1{font-size:clamp(2.6rem,7vw,5rem)}
-.lede{font-size:clamp(1.125rem,2vw,1.3rem);line-height:1.55;max-width:46ch;color:#dbe8ea}
-.soon{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--gold);border-radius:10px;max-width:640px;color:#f2e6d2}
-.soon b{color:var(--gold);font-weight:600;white-space:nowrap}
+.intro{padding:clamp(48px,8vw,96px) 0 clamp(28px,4vw,44px);display:grid;gap:20px;justify-items:start}
+.intro h1{font-size:clamp(3rem,8vw,5.6rem)}
+.lede{font-size:clamp(1.15rem,2.2vw,1.4rem);line-height:1.5;max-width:40ch;color:#dbe8ea}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 12px;border:1px solid var(--gold);border-radius:999px;color:var(--gold);font-size:.95rem;font-weight:600}
+.pill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.thanks{padding:14px 18px;border-radius:10px;background:var(--gold);color:var(--amber-ink);font-weight:600}
 
-.how{display:grid;gap:18px;margin:0;padding:0;list-style:none;counter-reset:step}
-@media (min-width:820px){.how{grid-template-columns:repeat(3,1fr);gap:28px}}
-.how li{counter-increment:step;padding-top:14px;border-top:1px solid var(--night-line);color:var(--mist)}
-.how li::before{content:counter(step);display:block;font-size:1.6rem;font-weight:300;color:var(--gold);line-height:1.2;margin-bottom:4px}
-.how strong{color:var(--white);font-weight:600}
-.fine{margin-top:26px;font-size:.95rem;color:var(--mist);max-width:64ch}
+.block{padding:clamp(28px,4vw,44px) 0}
+.block-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 20px;margin-bottom:14px}
+.block-head h2{font-size:clamp(1.9rem,4vw,2.7rem)}
+.block-head p{color:var(--mist)}
 
-.round{color:#dbe8ea;font-size:1rem;max-width:60ch}
-.thanks{padding:16px 18px;border-radius:10px;background:var(--gold);color:var(--amber-ink);max-width:640px;font-weight:600}
-.terms{margin-top:clamp(28px,4vw,40px);padding-top:22px;border-top:1px solid var(--night-line)}
-.terms h2{font-size:1.35rem;font-weight:400;margin-bottom:12px}
-.terms ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;max-width:70ch;color:var(--mist);font-size:.97rem}
-@media (min-width:820px){.terms ul{grid-template-columns:1fr 1fr;gap:12px 40px;max-width:none}}
-.terms strong{color:var(--white);font-weight:600}
-.board{padding:clamp(40px,6vw,72px) 0}
-.board-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px 24px;margin-bottom:18px}
-.board-head h2{font-size:clamp(1.9rem,4vw,2.8rem)}
-.board-head p{color:var(--mist);font-size:.95rem}
-.cities{list-style:none;margin:0;padding:0;border-top:1px solid var(--night-line)}
-.city{display:grid;grid-template-columns:2.2rem 1fr;gap:6px 14px;padding:18px 0;border-bottom:1px solid var(--night-line);align-items:center}
-.rank{font-size:1.25rem;font-weight:300;color:var(--gold);text-align:right;font-variant-numeric:tabular-nums}
-.name{font-size:clamp(1.35rem,2.6vw,1.75rem);font-weight:300;letter-spacing:-.015em;line-height:1.15}
-.name small{display:block;font-size:.88rem;color:var(--mist);letter-spacing:0;font-weight:400;margin-top:2px}
-.meter{grid-column:2;display:grid;gap:6px}
-.bar{height:6px;border-radius:6px;background:var(--night-2);overflow:hidden}
-.bar i{display:block;height:100%;width:0;background:var(--gold);border-radius:6px}
-.nums{font-size:.9rem;color:var(--mist);font-variant-numeric:tabular-nums}
-.nums b{color:var(--white);font-weight:600}
-.acts{grid-column:2;display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;border:1.5px solid var(--gold);white-space:nowrap}
-a.btn-solid{background:var(--gold);color:var(--amber-ink)}
-a.btn-solid:hover{background:#fff;border-color:#fff}
-a.btn-line{color:var(--white)}
-a.btn-line:hover{background:var(--gold);color:var(--amber-ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:92px;padding:0 20px;border-radius:999px;font:inherit;font-weight:600;font-size:.95rem;text-decoration:none;border:1.5px solid var(--gold);white-space:nowrap}
+a.btn{background:var(--gold);color:var(--amber-ink)}
+a.btn:hover{background:#fff;border-color:#fff}
 .btn[aria-disabled=true]{border-color:var(--night-line);color:#7f989e;background:transparent;cursor:not-allowed}
+button.more{background:transparent;color:var(--white);border-color:var(--night-line);cursor:pointer;margin-top:18px}
+button.more:hover{border-color:var(--gold)}
+
+.rank-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--night-line)}
+.row{display:grid;grid-template-columns:2rem minmax(0,1fr) auto;gap:4px 14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--night-line)}
+.row[hidden]{display:none}
+.pos{font-size:1.2rem;font-weight:300;color:var(--gold);text-align:right;font-variant-numeric:tabular-nums}
+.name{font-size:clamp(1.3rem,2.6vw,1.65rem);font-weight:300;letter-spacing:-.015em;line-height:1.15}
+.name small{display:block;font-size:.85rem;color:var(--mist);letter-spacing:0;font-weight:400;margin-top:2px}
+.count{grid-column:2;display:flex;align-items:center;gap:12px;font-size:.9rem;color:var(--mist);font-variant-numeric:tabular-nums}
+.count b{color:var(--white);font-weight:600;white-space:nowrap}
+.bar{flex:1;max-width:280px;height:5px;border-radius:5px;background:var(--night-2);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--gold);border-radius:5px}
+.row .btn{grid-row:1 / span 2;grid-column:3}
 @media (min-width:820px){
-  .city{grid-template-columns:2.6rem minmax(0,1.1fr) minmax(0,1fr) auto;gap:20px}
-  .meter,.acts{grid-column:auto;margin-top:0}
+  .row{grid-template-columns:2.4rem minmax(0,1fr) minmax(0,1fr) auto;gap:20px}
+  .count{grid-column:auto}
+  .row .btn{grid-row:auto;grid-column:auto}
 }
-.live{padding:0 0 clamp(56px,8vw,96px);color:var(--mist)}
-.live h2{font-size:1.35rem;font-weight:400;color:var(--white);margin-bottom:8px}
-.live ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 22px}
-.live a{color:var(--gold)}
-.error{color:var(--mist);padding:18px 0}
+
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+.card{border-radius:10px;overflow:hidden;background:var(--night-2);display:grid}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.card div{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px}
+.card b{display:block;font-weight:300;font-size:1.45rem;letter-spacing:-.015em;line-height:1.15}
+.card small{color:var(--mist);font-size:.88rem}
+
+.missing{color:var(--mist);padding:8px 0 0}
+.missing a{color:var(--gold)}
+.fine{padding:clamp(28px,4vw,40px) 0 clamp(56px,8vw,88px);color:#8aa3a9;font-size:.88rem;max-width:72ch}
+.fine a{color:var(--mist)}
+.error{color:var(--mist);padding:16px 0}
 
 .site-footer{background:#06131a;color:#c4d5d9;padding:40px 0 48px;font-size:.92rem;line-height:1.7}
 .site-footer .wrap{display:grid;gap:14px}
@@ -108,104 +106,82 @@ a.btn-line:hover{background:var(--gold);color:var(--amber-ink)}
 
 <main id="main">
   <section class="wrap intro" aria-labelledby="h">
-    <h1 id="h">Pick the next city</h1>
-    <p class="lede">Every month, supporters vote on which city we build next. Support the project for the city you most want to explore: each supporter is one vote.</p>
-    <p class="thanks" id="thanks" role="status" hidden>Thank you for supporting the project. Your vote shows up here within about 30 minutes.</p>
-    <p class="round" id="round">Vote dates will be announced when payments open.</p>
-    <p class="soon" id="soon" role="status"><b>Opening soon</b><span>Payments are not open yet, so nobody can support a city today. This page shows how the vote will work.</span></p>
+    <h1 id="h">Back a city</h1>
+    <p class="lede">Your hometown, or the place you'd love to explore. The most-backed new city is built next, and backing a city in the game helps us keep making it better.</p>
+    <p class="thanks" id="thanks" role="status" hidden>Thank you for backing a city. Your support shows up here within about 30 minutes.</p>
+    <p class="pill" id="soon">Opening soon</p>
   </section>
 
-  <section class="wrap" aria-labelledby="how-h">
-    <h2 id="how-h" class="sr">How it works</h2>
-    <ol class="how">
-      <li><strong>Choose a city</strong> and support the project with any amount, by card (including Apple Pay and Google Pay) or Bitcoin. Checkout opens on the payment provider's own page.</li>
-      <li><strong>One supporter, one vote</strong> per city per month, however much they give, so a single large payment cannot decide the vote. The amount raised is shown next to the votes.</li>
-      <li><strong>When the month's vote closes</strong>, the city with the most votes is next, once we have checked its 3D coverage and quality. A city takes 6 to 8 weeks to make, so each vote decides the release about two months later.</li>
-    </ol>
-    <div class="terms">
-      <h2>Terms</h2>
-      <ul>
-        <li><strong>Voluntary support, not a purchase.</strong> You are supporting the project. Nothing on this page sells a city, map content or anything else.</li>
-        <li><strong>A vote, not a guarantee.</strong> We may skip or delay a city for coverage, quality or legal reasons.</li>
-        <li><strong>Refunds</strong> as the law requires. Write to <a href="mailto:hello@citytoursim.com">hello@citytoursim.com</a>.</li>
-        <li><strong>Public totals, private names.</strong> We publish the votes and amount per city, never supporters' names.</li>
-        <li><strong>Payments</strong> are processed by Stripe for cards and by our Bitcoin checkout provider. We never see your card details.</li>
-      </ul>
-    </div>
+  <section class="wrap block" aria-labelledby="next-h">
+    <div class="block-head"><h2 id="next-h">Next up</h2><p>The city with the most backers is built next.</p></div>
+    <ol class="rank-list" id="upcoming" aria-live="polite"></ol>
+    <button class="btn more" id="more" type="button" hidden aria-controls="upcoming" aria-expanded="false"></button>
+    <p class="missing">Your city isn't on the list? <a href="mailto:hello@citytoursim.com?subject=City%20request">Tell us</a>.</p>
+    <noscript><p class="error">Turn on JavaScript to see the cities.</p></noscript>
   </section>
 
-  <section class="wrap board" aria-labelledby="board-h">
-    <div class="board-head">
-      <h2 id="board-h">Cities you can vote for</h2>
-      <p id="since"></p>
-    </div>
-    <ol class="cities" id="cities" aria-live="polite"></ol>
-    <noscript><p class="error">Turn on JavaScript to see the cities and their totals.</p></noscript>
+  <section class="wrap block" aria-labelledby="live-h">
+    <div class="block-head"><h2 id="live-h">In the game</h2><p>Backing helps us improve these cities.</p></div>
+    <ul class="cards" id="live"></ul>
   </section>
 
-  <section class="wrap live" id="live-wrap" aria-labelledby="live-h" hidden>
-    <h2 id="live-h">Already in the game</h2>
-    <ul id="live"></ul>
-  </section>
+  <p class="wrap fine">Backing is voluntary support for City Tour Simulator, not a purchase, and doesn't guarantee a city or feature. Payments are handled by Stripe; refunds as the law requires. We show how many people back each city, never who. <span id="btc" hidden><a id="btc-link" href="#" rel="noopener">Back with Bitcoin</a> and mention the city.</span></p>
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
     <div class="mark"><img src="/img/logo-horizontal-light.svg" width="675" height="156" alt="City Tour Simulator"></div>
     <p>Map data ©Google. 3D tiles: Google Maps Platform, streamed with Cesium. Minimap © OpenStreetMap contributors. Narration voice by ElevenLabs.</p>
-    <p>City Tour Simulator is an independent game. Card payments are handled by Stripe and Bitcoin payments by the Bitcoin checkout provider, each on their own pages.</p>
+    <p>City Tour Simulator is an independent game.</p>
   </div>
 </footer>
 
 <script>
 (function(){
-  var list=document.getElementById('cities');
+  var SHOW=10;
   function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
-  function money(n,cur){var d=(Math.round(n*100)%100)?2:0;try{return new Intl.NumberFormat('en-US',{style:'currency',currency:cur.toUpperCase(),minimumFractionDigits:d,maximumFractionDigits:d}).format(n)}catch(e){return '$'+n.toFixed(d)}}
-  function button(label,short,href,open,solid,city){
-    if(open&&href&&/^https:\/\//.test(href)){
-      var a=el('a','btn '+(solid?'btn-solid':'btn-line'),label);
-      a.href=href;a.rel='noopener';a.setAttribute('aria-label',label+' for '+city);return a;
-    }
-    var s=el('span','btn',short+' opens soon');s.setAttribute('aria-disabled','true');return s;
+  function backers(n){return n+(n===1?' backer':' backers')}
+  function backBtn(d,c){
+    var ok=d.open&&/^https:\/\//.test(d.stripe_link||'');
+    if(ok){var a=el('a','btn','Back');a.href=d.stripe_link+(d.stripe_link.indexOf('?')<0?'?':'&')+'client_reference_id='+encodeURIComponent(c.slug);a.rel='noopener';a.setAttribute('aria-label','Back '+c.name);return a}
+    var s=el('span','btn','Soon');s.setAttribute('aria-disabled','true');s.setAttribute('aria-label','Backing '+c.name+' opens soon');return s;
   }
   if(/[?&]thanks=1/.test(location.search))document.getElementById('thanks').hidden=false;
-  function fmtDate(iso){var d=new Date(iso+(iso.length===10?'T00:00:00Z':''));return isNaN(d)?iso:d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'})}
   fetch('/data/support.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){
-    var open=!!d.open, cur=d.currency||'usd', rnd=d.round||{};
-    document.getElementById('soon').hidden=open;
-    if(rnd.vote_closes&&rnd.decides_release){
-      document.getElementById('round').textContent="This month's vote closes on "+fmtDate(rnd.vote_closes)+' and decides the '+rnd.decides_release+' release.';
-    }
-    var since=[];
-    if(rnd.month){var m=new Date(rnd.month+'-01T00:00:00Z');since.push('Votes for '+m.toLocaleDateString('en-GB',{month:'long',year:'numeric',timeZone:'UTC'})+'.')}
-    if(d.updated)since.push('Last update '+new Date(d.updated).toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'})+'.');
-    document.getElementById('since').textContent=since.join(' ');
-    var cities=(d.cities||[]).map(function(c,i){c._i=i;return c});
-    cities.sort(function(a,b){return (b.votes||0)-(a.votes||0)||(b.raised_usd||0)-(a.raised_usd||0)||a._i-b._i});
-    var rank=0, top=cities.length?(cities[0].votes||0):0;
-    cities.forEach(function(c){
-      var li=el('li','city'), votes=c.votes||0, raised=c.raised_usd||0;
-      if(votes>0)rank++;
-      var r=el('span','rank',votes>0?String(rank):'');r.setAttribute('aria-hidden','true');li.appendChild(r);
-      var n=el('div','name',c.name);n.appendChild(el('small',null,c.country||''));li.appendChild(n);
-      var m=el('div','meter');
-      var nums=el('p','nums');nums.appendChild(el('b',null,votes+(votes===1?' vote':' votes')));
-      nums.appendChild(document.createTextNode(', '+money(raised,cur)+' raised'));
-      m.appendChild(nums);
-      if(top>0){var bar=el('div','bar'),fill=el('i');fill.style.width=(votes/top*100)+'%';bar.appendChild(fill);bar.setAttribute('aria-hidden','true');m.appendChild(bar)}
-      li.appendChild(m);
-      var acts=el('div','acts');
-      acts.appendChild(button('Support with card','Card',c.stripe_link,open,true,c.name));
-      acts.appendChild(button('Support with Bitcoin','Bitcoin',c.bitcoin_link,open,false,c.name));
-      li.appendChild(acts);list.appendChild(li);
+    document.getElementById('soon').hidden=!!d.open;
+    if(d.open&&/^https:\/\//.test(d.bitcoin_link||'')){document.getElementById('btc-link').href=d.bitcoin_link;document.getElementById('btc').hidden=false}
+    var all=(d.cities||[]).map(function(c,i){c._i=i;return c});
+    var up=all.filter(function(c){return c.status==='upcoming'}).sort(function(a,b){return (b.backers||0)-(a.backers||0)||(b.raised_usd||0)-(a.raised_usd||0)||a._i-b._i});
+    var top=up.length?(up[0].backers||0):0, list=document.getElementById('upcoming'), pos=0;
+    up.forEach(function(c,i){
+      var n=c.backers||0, li=el('li','row');
+      if(n>0)pos++;
+      var p=el('span','pos',n>0?String(pos):'');p.setAttribute('aria-hidden','true');li.appendChild(p);
+      var nm=el('div','name',c.name);nm.appendChild(el('small',null,c.country||''));li.appendChild(nm);
+      var ct=el('div','count');ct.appendChild(el('b',null,backers(n)));
+      if(top>0){var bar=el('span','bar'),f=el('i');f.style.width=(n/top*100)+'%';bar.appendChild(f);bar.setAttribute('aria-hidden','true');ct.appendChild(bar)}
+      li.appendChild(ct);li.appendChild(backBtn(d,c));
+      if(i>=SHOW)li.hidden=true;
+      list.appendChild(li);
     });
-    if(d.show_live&&(d.live||[]).length){
-      var live=document.getElementById('live');
-      d.live.forEach(function(c){var li=el('li');var a=el('a',null,c.name);a.href='/#cities';li.appendChild(a);live.appendChild(li)});
-      document.getElementById('live-wrap').hidden=false;
+    var more=document.getElementById('more');
+    if(up.length>SHOW){
+      more.textContent='Show all '+up.length+' cities';more.hidden=false;
+      more.addEventListener('click',function(){
+        var open=more.getAttribute('aria-expanded')==='true';
+        [].forEach.call(list.children,function(li,i){if(i>=SHOW)li.hidden=open});
+        more.setAttribute('aria-expanded',open?'false':'true');
+        more.textContent=open?'Show all '+up.length+' cities':'Show the top '+SHOW;
+      });
     }
-  }).catch(function(){list.appendChild(el('li','error','The city list could not be loaded. Try again in a moment.'))});
+    var live=document.getElementById('live');
+    all.filter(function(c){return c.status==='live'}).forEach(function(c){
+      var li=el('li','card');
+      if(c.thumb){var im=el('img');im.src=c.thumb;im.alt='';im.width=480;im.height=270;im.loading='lazy';li.appendChild(im)}
+      var row=el('div'),t=el('span');t.appendChild(el('b',null,c.name));t.appendChild(el('small',null,backers(c.backers||0)));
+      row.appendChild(t);row.appendChild(backBtn(d,c));li.appendChild(row);live.appendChild(li);
+    });
+  }).catch(function(){document.getElementById('upcoming').appendChild(el('li','error','The cities could not be loaded. Try again in a moment.'))});
 })();
 </script>
 </body>
