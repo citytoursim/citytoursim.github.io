@@ -4,8 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Support a city: City Tour Simulator</title>
-<meta name="description" content="Vote for the next city in City Tour Simulator. Support a city and it counts toward which city we build next.">
-<meta name="robots" content="noindex">
+<meta name="description" content="Vote for the next city in City Tour Simulator. Each month, supporters decide which city we build next.">
 <meta name="theme-color" content="#0a1a21">
 <link rel="icon" type="image/svg+xml" href="/img/icon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
@@ -30,6 +29,7 @@ a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1px}
 .wrap{width:min(1040px,100% - 2*var(--gutter));margin-inline:auto}
 .skip{position:absolute;left:12px;top:-60px;z-index:20;background:var(--gold);color:var(--amber-ink);padding:10px 16px;border-radius:6px;font-weight:600}
 .skip:focus{top:12px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 h1,h2{margin:0;font-weight:300;letter-spacing:-.02em;line-height:1.05}
 p{margin:0}
 
@@ -53,6 +53,13 @@ p{margin:0}
 .how strong{color:var(--white);font-weight:600}
 .fine{margin-top:26px;font-size:.95rem;color:var(--mist);max-width:64ch}
 
+.round{color:#dbe8ea;font-size:1rem;max-width:60ch}
+.thanks{padding:16px 18px;border-radius:10px;background:var(--gold);color:var(--amber-ink);max-width:640px;font-weight:600}
+.terms{margin-top:clamp(28px,4vw,40px);padding-top:22px;border-top:1px solid var(--night-line)}
+.terms h2{font-size:1.35rem;font-weight:400;margin-bottom:12px}
+.terms ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;max-width:70ch;color:var(--mist);font-size:.97rem}
+@media (min-width:820px){.terms ul{grid-template-columns:1fr 1fr;gap:12px 40px;max-width:none}}
+.terms strong{color:var(--white);font-weight:600}
 .board{padding:clamp(40px,6vw,72px) 0}
 .board-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px 24px;margin-bottom:18px}
 .board-head h2{font-size:clamp(1.9rem,4vw,2.8rem)}
@@ -102,17 +109,29 @@ a.btn-line:hover{background:var(--gold);color:var(--amber-ink)}
 <main id="main">
   <section class="wrap intro" aria-labelledby="h">
     <h1 id="h">Pick the next city</h1>
-    <p class="lede">We add a new city every month. Support the one you most want to explore: every contribution counts as a vote, and the city with the most support is the one we build next.</p>
-    <p class="soon" id="soon" role="status"><b>Opening soon</b><span>Payments are not open yet. This page shows how the vote will work.</span></p>
+    <p class="lede">Every month, supporters vote on which city we build next. Support the project for the city you most want to explore: each supporter is one vote.</p>
+    <p class="thanks" id="thanks" role="status" hidden>Thank you for supporting the project. Your vote shows up here within about 30 minutes.</p>
+    <p class="round" id="round">Vote dates will be announced when payments open.</p>
+    <p class="soon" id="soon" role="status"><b>Opening soon</b><span>Payments are not open yet, so nobody can support a city today. This page shows how the vote will work.</span></p>
   </section>
 
-  <section class="wrap" aria-label="How the vote works">
+  <section class="wrap" aria-labelledby="how-h">
+    <h2 id="how-h" class="sr">How it works</h2>
     <ol class="how">
-      <li><strong>Choose a city</strong> and give what you like, by card (including Apple Pay and Google Pay) or Bitcoin. Checkout opens on the payment provider's own page.</li>
-      <li><strong>Totals update</strong> on this page about every 30 minutes. Only the total and the number of supporters per city are shown, never names.</li>
-      <li><strong>At the end of each month</strong> the city with the most support goes into production as the next new city.</li>
+      <li><strong>Choose a city</strong> and support the project with any amount, by card (including Apple Pay and Google Pay) or Bitcoin. Checkout opens on the payment provider's own page.</li>
+      <li><strong>One supporter, one vote</strong> per city per month, however much they give, so a single large payment cannot decide the vote. The amount shows separately as funding progress.</li>
+      <li><strong>When the month's vote closes</strong>, the city with the most votes is next, once we have checked its 3D coverage and quality. A city takes 6 to 8 weeks to make, so each vote decides the release about two months later.</li>
     </ol>
-    <p class="fine">Support is a contribution to the project, not a purchase. You receive nothing in return, and there is no guarantee that a city will be added or when.</p>
+    <div class="terms">
+      <h2>Terms</h2>
+      <ul>
+        <li><strong>Voluntary support, not a purchase.</strong> You are supporting the project. You are not buying a city, map content or anything else.</li>
+        <li><strong>A vote, not a guarantee.</strong> We may skip or delay a city for coverage, quality or legal reasons.</li>
+        <li><strong>Refunds</strong> as the law requires. Write to <a href="mailto:hello@citytoursim.com">hello@citytoursim.com</a>.</li>
+        <li><strong>Public totals, private names.</strong> We publish the votes and amount per city, never supporters' names.</li>
+        <li><strong>Payments</strong> are processed by Stripe for cards and by our Bitcoin checkout provider. We never see your card details.</li>
+      </ul>
+    </div>
   </section>
 
   <section class="wrap board" aria-labelledby="board-h">
@@ -124,7 +143,7 @@ a.btn-line:hover{background:var(--gold);color:var(--amber-ink)}
     <noscript><p class="error">Turn on JavaScript to see the cities and their totals.</p></noscript>
   </section>
 
-  <section class="wrap live" aria-labelledby="live-h">
+  <section class="wrap live" id="live-wrap" aria-labelledby="live-h" hidden>
     <h2 id="live-h">Already in the game</h2>
     <ul id="live"></ul>
   </section>
@@ -150,36 +169,43 @@ a.btn-line:hover{background:var(--gold);color:var(--amber-ink)}
     }
     var s=el('span','btn',short+' opens soon');s.setAttribute('aria-disabled','true');return s;
   }
+  if(/[?&]thanks=1/.test(location.search))document.getElementById('thanks').hidden=false;
+  function fmtDate(iso){var d=new Date(iso+(iso.length===10?'T00:00:00Z':''));return isNaN(d)?iso:d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'})}
   fetch('/data/support.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){
-    var open=!!d.open, cur=d.currency||'usd';
+    var open=!!d.open, cur=d.currency||'usd', rnd=d.round||{};
     document.getElementById('soon').hidden=open;
-    if(d.round_start){
-      var dt=new Date(d.round_start+'T00:00:00Z');
-      document.getElementById('since').textContent='Counting since '+dt.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'})+(d.updated?'. Last update '+new Date(d.updated).toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'})+'.':'.');
+    if(rnd.vote_closes&&rnd.decides_release){
+      document.getElementById('round').textContent="This month's vote closes on "+fmtDate(rnd.vote_closes)+' and decides the '+rnd.decides_release+' release.';
     }
+    var since=[];
+    if(rnd.month){var m=new Date(rnd.month+'-01T00:00:00Z');since.push('Votes for '+m.toLocaleDateString('en-GB',{month:'long',year:'numeric',timeZone:'UTC'})+'.')}
+    if(d.updated)since.push('Last update '+new Date(d.updated).toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'})+'.');
+    document.getElementById('since').textContent=since.join(' ');
     var cities=(d.cities||[]).map(function(c,i){c._i=i;return c});
-    cities.sort(function(a,b){return (b.raised_usd||0)-(a.raised_usd||0)||(b.supporters||0)-(a.supporters||0)||a._i-b._i});
+    cities.sort(function(a,b){return (b.votes||0)-(a.votes||0)||(b.raised_usd||0)-(a.raised_usd||0)||a._i-b._i});
     var rank=0;
     cities.forEach(function(c){
-      var li=el('li','city'), raised=c.raised_usd||0, goal=c.goal_usd||0;
-      if(raised>0)rank++;
-      var r=el('span','rank',raised>0?String(rank):'');r.setAttribute('aria-hidden','true');li.appendChild(r);
+      var li=el('li','city'), votes=c.votes||0, raised=c.raised_usd||0, goal=c.goal_usd||0;
+      if(votes>0)rank++;
+      var r=el('span','rank',votes>0?String(rank):'');r.setAttribute('aria-hidden','true');li.appendChild(r);
       var n=el('div','name',c.name);n.appendChild(el('small',null,c.country||''));li.appendChild(n);
       var m=el('div','meter'), bar=el('div','bar'), fill=el('i');
-      var pct=goal>0?Math.min(100,raised/goal*100):0;fill.style.width=pct+'%';bar.appendChild(fill);
+      fill.style.width=(goal>0?Math.min(100,raised/goal*100):0)+'%';bar.appendChild(fill);
       bar.setAttribute('role','progressbar');bar.setAttribute('aria-valuemin','0');bar.setAttribute('aria-valuemax',String(goal));bar.setAttribute('aria-valuenow',String(raised));
-      bar.setAttribute('aria-label',c.name+': '+money(raised,cur)+' of '+money(goal,cur)+' goal');
-      m.appendChild(bar);
-      var nums=el('p','nums');var b=el('b',null,money(raised,cur));nums.appendChild(b);
-      nums.appendChild(document.createTextNode(' of '+money(goal,cur)+' goal, '+(c.supporters||0)+((c.supporters||0)===1?' supporter':' supporters')));
-      m.appendChild(nums);li.appendChild(m);
+      bar.setAttribute('aria-label',c.name+' funding: '+money(raised,cur)+' of '+money(goal,cur));
+      var nums=el('p','nums');nums.appendChild(el('b',null,votes+(votes===1?' vote':' votes')));
+      nums.appendChild(document.createTextNode(', '+money(raised,cur)+' of '+money(goal,cur)+' funding goal'));
+      m.appendChild(nums);m.appendChild(bar);li.appendChild(m);
       var acts=el('div','acts');
       acts.appendChild(button('Support with card','Card',c.stripe_link,open,true,c.name));
       acts.appendChild(button('Support with Bitcoin','Bitcoin',c.bitcoin_link,open,false,c.name));
       li.appendChild(acts);list.appendChild(li);
     });
-    var live=document.getElementById('live');
-    (d.live||[]).forEach(function(c){var li=el('li');var a=el('a',null,c.name);a.href='/#cities';li.appendChild(a);live.appendChild(li)});
+    if(d.show_live&&(d.live||[]).length){
+      var live=document.getElementById('live');
+      d.live.forEach(function(c){var li=el('li');var a=el('a',null,c.name);a.href='/#cities';li.appendChild(a);live.appendChild(li)});
+      document.getElementById('live-wrap').hidden=false;
+    }
   }).catch(function(){list.appendChild(el('li','error','The city list could not be loaded. Try again in a moment.'))});
 })();
 </script>
