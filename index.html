@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>City Tour Simulator – Explore real cities</title>
+<meta name="description" content="Explore real cities from above and on foot. Narrated guided tours of San Francisco, Ghent, New York, Paris, London and Tokyo, with a new city every month. Coming to Steam.">
+<meta name="theme-color" content="#14110f">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="canonical" href="https://citytoursim.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="City Tour Simulator – Explore real cities">
+<meta property="og:description" content="Narrated aerial city tours in photorealistic 3D. A new city every month. Coming to Steam.">
+<meta property="og:url" content="https://citytoursim.com/">
+<meta property="og:image" content="https://citytoursim.com/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --bg:#14110f; --bg2:#1c1814; --card:#221d18; --line:#352d25;
+  --text:#f3ece3; --muted:#b9ad9f; --gold:#f2a444; --gold2:#ffcf8a;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--gold2)}
+a:hover{color:#fff}
+.wrap{width:min(1080px,100% - 32px);margin-inline:auto}
+
+/* top bar */
+header{position:absolute;inset:0 0 auto 0;z-index:5;padding:16px 0}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:700;letter-spacing:.02em}
+.brand img{width:36px;height:36px;border-radius:9px}
+nav{display:flex;gap:20px;font-size:15px}
+nav a{color:#fff;text-decoration:none;opacity:.9}
+nav a:hover{opacity:1;text-decoration:underline}
+@media (max-width:560px){nav a:not(:last-child){display:none}}
+
+/* hero */
+.hero{position:relative;min-height:min(86vh,720px);display:grid;align-items:end;
+  background:#14110f url(/img/hero.jpg) center 35%/cover no-repeat}
+.hero::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(20,17,15,.55) 0%,rgba(20,17,15,0) 30%,rgba(20,17,15,.35) 60%,var(--bg) 100%)}
+.hero .wrap{position:relative;z-index:2;padding:120px 0 56px}
+.hero img.logo{width:min(440px,80%);margin:0 0 -8px -24px;filter:drop-shadow(0 6px 24px rgba(0,0,0,.45))}
+.tagline{font-size:clamp(28px,5vw,48px);line-height:1.1;font-weight:800;margin:0 0 14px;letter-spacing:-.01em}
+.lede{max-width:640px;color:#eadfd2;margin:0 0 24px;font-size:clamp(17px,2.2vw,20px)}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;
+  background:var(--gold);color:#241505;font-weight:700;font-size:16px}
+.pill.ghost{background:transparent;color:var(--text);border:1px solid var(--line);text-decoration:none}
+.pill.ghost:hover{border-color:var(--gold)}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+/* sections */
+section{padding:72px 0}
+section.alt{background:var(--bg2);border-block:1px solid var(--line)}
+h2{font-size:clamp(26px,3.6vw,36px);line-height:1.15;margin:0 0 14px;letter-spacing:-.01em}
+.sub{color:var(--muted);max-width:680px;margin:0 0 32px}
+.cities{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:0 0 36px;padding:0;list-style:none}
+.cities li{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--card)}
+.cities img{aspect-ratio:16/10;width:100%;object-fit:cover}
+.cities span{display:block;padding:8px 10px;font-size:14px;font-weight:600}
+@media (max-width:900px){.cities{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:480px){.cities{grid-template-columns:repeat(2,1fr)}}
+.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.shots figure{margin:0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+.shots img{width:100%;aspect-ratio:16/9;object-fit:cover}
+@media (max-width:640px){.shots{grid-template-columns:1fr}}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.card h3{margin:0 0 8px;font-size:19px}
+.card p{margin:0;color:var(--muted);font-size:16px}
+.video{border:1px dashed var(--line);border-radius:var(--radius);padding:40px 24px;text-align:center;background:var(--card)}
+.video p{margin:0 0 8px;color:var(--muted)}
+.links{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0;list-style:none}
+.links a{display:inline-block;padding:10px 16px;border:1px solid var(--line);border-radius:999px;
+  text-decoration:none;color:var(--text);background:var(--card)}
+.links a:hover{border-color:var(--gold);color:#fff}
+footer{padding:36px 0 56px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer p{margin:0 0 8px;max-width:760px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/img/favicon-192.png" alt="" width="36" height="36">City Tour Simulator</a>
+    <nav aria-label="Main">
+      <a href="#tours">Tours</a>
+      <a href="#features">Features</a>
+      <a href="#video">Video</a>
+      <a href="#follow">Follow</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <img class="logo" src="/img/logo.png" alt="City Tour Simulator" width="900" height="506">
+      <h1 class="tagline">Explore real cities</h1>
+      <p class="lede">Fly over landmarks on narrated guided tours, walk the streets, jump anywhere with fast travel, and explore with friends. A new city every month.</p>
+      <div class="cta">
+        <span class="pill">Coming to Steam</span>
+        <a class="pill ghost" href="https://www.youtube.com/@citytoursim" rel="noopener">Watch on YouTube</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="tours">
+    <div class="wrap">
+      <h2>Narrated city tours</h2>
+      <p class="sub">Every city has a short tour of 15 highlights and a long tour of 30. The camera glides to each landmark while the narrator tells its story. Pause anytime, step out and explore on foot, then pick the tour back up.</p>
+      <ul class="cities" aria-label="Launch cities">
+        <li><img src="/img/city-sf.jpg" alt="San Francisco from above" width="480" height="270" loading="lazy"><span>San Francisco</span></li>
+        <li><img src="/img/city-ghent.jpg" alt="Ghent from above" width="480" height="270" loading="lazy"><span>Ghent</span></li>
+        <li><img src="/img/city-nyc.jpg" alt="New York from above" width="480" height="270" loading="lazy"><span>New York</span></li>
+        <li><img src="/img/city-paris.jpg" alt="Paris from above" width="480" height="270" loading="lazy"><span>Paris</span></li>
+        <li><img src="/img/city-london.jpg" alt="London from above" width="480" height="270" loading="lazy"><span>London</span></li>
+        <li><img src="/img/city-tokyo.jpg" alt="Tokyo from above" width="480" height="270" loading="lazy"><span>Tokyo</span></li>
+      </ul>
+      <div class="shots">
+        <figure><img src="/img/show-golden-gate.jpg" alt="The Golden Gate Bridge at golden hour" width="1200" height="675" loading="lazy"></figure>
+        <figure><img src="/img/show-twin-peaks.jpg" alt="San Francisco seen from Twin Peaks" width="1200" height="675" loading="lazy"></figure>
+        <figure><img src="/img/show-graslei.jpg" alt="Ghent and the Graslei waterfront" width="1200" height="675" loading="lazy"></figure>
+        <figure><img src="/img/show-st-michaels.jpg" alt="Ghent and Saint Michael's Bridge" width="1200" height="675" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="alt">
+    <div class="wrap">
+      <h2>Real cities, explored your way</h2>
+      <p class="sub">City Tour Simulator streams the real world in photorealistic 3D. Pick a city and go.</p>
+      <div class="grid">
+        <div class="card"><h3>Walk, climb, fly</h3><p>Walk the streets, climb onto rooftops, take to the sky with a jetpack, or let a guide fly you from landmark to landmark.</p></div>
+        <div class="card"><h3>Fast travel and free roam</h3><p>Jump straight to the sights, then wander. A minimap shows where you are and where the tour goes next.</p></div>
+        <div class="card"><h3>Golden hour, any hour</h3><p>Follow the clock from morning light to night, when street lamps and shop windows light up.</p></div>
+        <div class="card"><h3>Explore together</h3><p>Host a city and invite friends: walk, fly and tour side by side.</p></div>
+        <div class="card"><h3>Made to be comfortable</h3><p>Subtitles, keyboard, mouse and controller support. No violence, just exploring.</p></div>
+        <div class="card"><h3>A growing world</h3><p>A new city every month, released on the same day as its season on our YouTube channel.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="video">
+    <div class="wrap">
+      <h2>Watch the tours</h2>
+      <div class="video">
+        <p>The first season goes live on 7 December.</p>
+        <p><a href="https://www.youtube.com/@citytoursim" rel="noopener">Subscribe on YouTube</a> to catch it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="follow" class="alt">
+    <div class="wrap">
+      <h2>Follow along</h2>
+      <p class="sub">The game is coming to Steam. Follow us for new tours and release news.</p>
+      <ul class="links">
+        <li><a href="https://www.youtube.com/@citytoursim" rel="noopener">YouTube</a></li>
+        <li><a href="https://www.instagram.com/citytoursim/" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.facebook.com/citytoursim" rel="noopener">Facebook</a></li>
+        <li><a href="https://bsky.app/profile/citytoursim.bsky.social" rel="noopener">Bluesky</a></li>
+        <li><a href="mailto:hello@citytoursim.com">hello@citytoursim.com</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Map data ©Google. 3D tiles: Google Maps Platform, streamed with Cesium. Minimap © OpenStreetMap contributors. Narration voice by ElevenLabs.</p>
+    <p>© City Tour Simulator. This site uses no cookies, analytics or tracking.</p>
+  </div>
+</footer>
+
+</body>
+</html>
